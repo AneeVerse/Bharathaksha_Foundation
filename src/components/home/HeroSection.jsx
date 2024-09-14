@@ -72,10 +72,11 @@ const HeroSection = () => {
 
       <div className="relative z-40 flex items-center justify-center h-full text-center text-white px-4">
         <div>
-          <p className="text-lg md:text-xl">Bharataksha Foundation</p>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          Our Slogan Here
-          </h1>
+         <h1 className="text-4xl md:text-6xl font-bold leading-tight">          
+          Bharataksha Foundation
+          </h1>  
+          <p className="text-xl md:text-3xl mt-3">Soul as Bharat</p>
+         
 
           <div className="mt-8 flex justify-center space-x-4">
             <Link

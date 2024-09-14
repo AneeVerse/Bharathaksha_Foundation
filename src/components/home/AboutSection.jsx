@@ -12,7 +12,7 @@ const AboutSection = () => {
       {/* <div className="absolute bottom-0 right-20 w-60 h-60 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse delay-500"></div> */}
       
       {/* Main Content */}
-      <div className="flex container mx-auto flex-col-reverse md:flex-row items-center justify-between md:space-x-8 space-y-8 md:space-y-0 px-4 md:px-16 relative z-10">
+      <div className="flex container mx-auto flex-col-reverse lg:flex-row items-center justify-between md:space-x-8 space-y-8 md:space-y-0 px-4 md:px-16 relative z-10">
         {/* Main Image */}
         <div className="relative flex justify-center flex-1 md:w-full h-[500px] rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
           <img
@@ -36,34 +36,26 @@ const AboutSection = () => {
           </p>
 
           {/* Work as an Intern Section */}
-          <div className="space-y-2 flex flex-col gap-2">
-            <div className="flex flex-row gap-5 items-center ">
-              <GrGroup className="text-[#8ac240] h-[90px] w-[90px] self-center animate-bounce" />
-              <div>
-                <h3 className="text-xl font-semibold">Work As An Intern</h3>
-                <p className="text-gray-600">
-                  Sed quia consequuntur magni dolores eos qui ratione voluptatem
-                  sequi nesciunt.
-                </p>
-              </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="mt-4 flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-4">
+       <div className="flex gap-8 mt-3">
+            <GrGroup className="text-[#8ac240] h-[70px] w-[70px] self-center animate-bounce" />
+            <div className="flex flex-col sm:flex-row items-center gap-4 ">
+     <div>
               <Link
                 href="/home/about"
-                className="bg-[#8ac240] text-white font-semibold px-12 py-3 rounded-full hover:bg-[#5d8626] transition duration-300 ease-in-out transform hover:scale-105"
+                className="bg-[#8ac240] block text-white font-semibold px-12 py-3 rounded-full hover:bg-[#5d8626] duration-300 min-w-max"
               >
                 Learn More
               </Link>
+              </div>
               <Link
-                href="https://wa.me/1234567899"
+                href="https://wa.me/919222285780?text=Hello,%20I%20am%20interested%20in%20your%20services."
                 target="_blank"
-                className="flex self-center border border-[#8ac240] group duration-200 rounded-full px-5 py-2 text-[#8ac240] items-center space-x-2 bg-white hover:text-white hover:bg-[#8ac240] transform hover:scale-105 transition"
+                className="flex self-center border border-[#8ac240] group duration-200 rounded-full px-8 py-3  text-[#8ac240] items-center space-x-2 bg-white hover:text-white hover:bg-[#8ac240] transform hover:scale-105 transition"
               >
                 <IoLogoWhatsapp className="w-5 h-5 self-center" />
-                <p className="">+1234567899</p>
+                <p className="">9222285780</p>
               </Link>
+              
             </div>
           </div>
         </div>

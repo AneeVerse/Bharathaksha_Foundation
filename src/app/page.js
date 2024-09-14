@@ -17,7 +17,7 @@ export default function Home() {
     <OngoingProject/>
     <OurPartner/>
     <TeamMembers/>
-    <Testimonials/>
+    {/* <Testimonials/> */}
     </div>
   );
 }

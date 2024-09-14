@@ -13,18 +13,24 @@ export default function Page() {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"/>
         <div className="relative z-10 max-w-7xl px-4 h-full w-full flex flex-col justify-center items-center mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white">Our Ongoing Projects</h2>
+          <h2 className="text-4xl font-bold text-white">What we do</h2>
           <p className="mt-4 text-white font-medium">
-          We are actively working on several initiatives to make a positive
-          impact on communities in need.
+          Bharathaksha Foundation empowers individuals by providing education, skill development, career guidance, and essential healthcare, fostering a more inclusive and prosperous India.
           </p>
         </div>
       </section>
 
       {/* Project Highlights */}
-      <section className="py-16 bg-white">
+      <section className="pb-16 bg-white">
+      <div className="text-center flex flex-col my-8 justify-center gap-3">
+          <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-semibold">
+          Our Ongoing Projects
+          </h2>
+          <div className="inline-block self-center h-1 bg-[#8ac240] w-[70px] rounded-full animate-pulse" />
+        </div>
+
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Highlight 1 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
@@ -60,6 +66,26 @@ export default function Page() {
               <a
                 href="#"
                 className="inline-block px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors duration-300"
+              >
+                Learn More
+              </a>
+            </div>
+
+            {/* Highlight 3 */}
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+              <img
+                src="/images/ongoing/img4.jpg"
+                alt="Skill Development"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h2 className="text-2xl font-bold mb-2">Skill Development</h2>
+              <p className="text-gray-600 mb-4">
+                Offering vocational training programs to boost employment
+                opportunities for the underprivileged.
+              </p>
+              <a
+                href="#"
+                className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
               >
                 Learn More
               </a>

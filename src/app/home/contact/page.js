@@ -13,7 +13,7 @@ export default function ContactForm() {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: "",
+    subject: "",
     message: "",
   });
 
@@ -45,7 +45,7 @@ export default function ContactForm() {
           firstName: "",
           lastName: "",
           email: "",
-          phoneNumber: "",
+          subject: "",
           message: "",
         });
         setTimeout(() => setMessageSent(false), 10000);
@@ -95,25 +95,27 @@ export default function ContactForm() {
             >
               <div className="flex items-center mb-2 gap-2">
                 <RiHomeOfficeFill className="text-gray-500 w-[20px] h-[20px]" />
-                <h4 className="text-lg font-semibold">Our Address</h4>
+                <h4 className="text-lg font-semibold">Address</h4>
               </div>
-              <p>Envato Pty Ltd 13/2 Elizabeth St Melbourne VLC 3000 Australia</p>
+              <p><b className=" font-semibold">Head Office: </b>202, Himalaya Prestige, Udupi-Manipal Road, Kunjibettu, Udupi, Karnataka  576102</p>
+             
+              <p className="mt-2"><b className=" font-semibold">Navi Mumbai Office: </b>Office No. 03,  Plot No. 45, near HP Petrol Pump, Seawoods West, Sector 44, Seawoods, Navi Mumbai, Maharashtra 400706</p>
             </Link>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Link
-                href="tel:+1234567899"
+                href="tel:+919222285780"
                 className="bg-blue-50 p-6 rounded-lg shadow-sm"
               >
                 <div className="flex items-center mb-2 gap-2">
                   <FaPhone className="text-gray-500 w-[20px] h-[20px]" />
                   <h4 className="text-lg font-semibold">Phone Number</h4>
                 </div>
-                <p>+1234567899</p>
+                <p>+91 9222285780</p>
               </Link>
 
               <Link
-                href="https://wa.me/1234567899"
+                href="https://wa.me/+919222285780"
                 target="_blank"
                 className="bg-green-50 p-6 rounded-lg shadow-sm"
               >
@@ -121,19 +123,19 @@ export default function ContactForm() {
                   <IoLogoWhatsapp className="text-gray-500 w-[20px] h-[20px]" />
                   <h4 className="text-lg font-semibold">WhatsApp Number</h4>
                 </div>
-                <p>+1234567899</p>
+                <p>+91 9222285780</p>
               </Link>
             </div>
 
             <Link
-              href="mailto:info@hoperaise.com"
+              href="mailto:bharathakshafoundation@gmail.com"
               className="bg-gray-50 p-6 rounded-lg shadow-sm"
             >
               <div className="flex items-center mb-2 gap-2">
                 <MdEmail className="text-gray-500 w-[20px] h-[20px]" />
                 <h4 className="text-lg font-semibold">Email Address</h4>
               </div>
-              <p>info@hoperaise.com</p>
+              <p>bharathakshafoundation@gmail.com</p>
             </Link>
           </div>
 
@@ -148,7 +150,7 @@ export default function ContactForm() {
                   htmlFor="firstName"
                   className="block text-gray-700 font-medium"
                 >
-                  First Name
+                  First Name *
                 </label>
                 <input
                   type="text"
@@ -184,7 +186,7 @@ export default function ContactForm() {
                   htmlFor="email"
                   className="block text-gray-700 font-medium"
                 >
-                  Your Email
+                  Your Email *
                 </label>
                 <input
                   type="email"
@@ -199,16 +201,16 @@ export default function ContactForm() {
 
               <div className="col-span-2">
                 <label
-                  htmlFor="phoneNumber"
+                  htmlFor="subject"
                   className="block text-gray-700 font-medium"
                 >
-                  Phone Number
+                 Subject *
                 </label>
                 <input
                   type="text"
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   className="mt-1 block w-full px-4 py-2 bg-gray-50 border rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500"
                 />
@@ -219,7 +221,7 @@ export default function ContactForm() {
                   htmlFor="message"
                   className="block text-gray-700 font-medium"
                 >
-                  Message
+                  Message *
                 </label>
                 <textarea
                   id="message"

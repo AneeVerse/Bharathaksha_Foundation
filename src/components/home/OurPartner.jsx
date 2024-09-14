@@ -6,23 +6,43 @@ import React, { useState, useEffect } from "react";
 const logoList = [
   {
     name: "client1",
-    url: "/images/home/ourParnterSection/client1.png",
+    url: "/images/home/ourParnterSection/bajaj.webp",
   },
   {
     name: "client2",
-    url: "/images/home/ourParnterSection/client2.png",
+    url: "/images/home/ourParnterSection/canara.webp",
   },
   {
     name: "client3",
-    url: "/images/home/ourParnterSection/client3.png",
+    url: "/images/home/ourParnterSection/casino .webp",
   },
   {
     name: "client4",
-    url: "/images/home/ourParnterSection/client4.png",
+    url: "/images/home/ourParnterSection/deepak.webp",
   },
   {
     name: "client5",
-    url: "/images/home/ourParnterSection/client5.png",
+    url: "/images/home/ourParnterSection/fahara.webp",
+  },
+  {
+    name: "client6",
+    url: "/images/home/ourParnterSection/feepay 2.webp",
+  },
+  {
+    name: "client7",
+    url: "/images/home/ourParnterSection/katch.webp",
+  },
+  {
+    name: "client8",
+    url: "/images/home/ourParnterSection/manya .webp",
+  },
+  {
+    name: "client8",
+    url: "/images/home/ourParnterSection/mountain 2.webp",
+  },
+  {
+    name: "client9",
+    url: "/images/home/ourParnterSection/pathfinder.png",
   },
 ];
 
@@ -83,7 +103,7 @@ const OurPartner = () => {
                     alt={val.name}
                     width={106}
                     height={95}
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               );

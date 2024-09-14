@@ -71,6 +71,16 @@ const OngoingProject = () => {
               );
             })}
           </div>
+
+          {/* View All Projects Button */}
+          <div className="flex justify-center mt-12">
+            <a
+              href="/home/ongoing-projects"
+              className="px-10 py-3 bg-[#8ac240] text-white rounded-full hover:bg-[#5d8626] transition duration-300 ease-in-out transform hover:scale-105 text-lg font-semibold"
+            >
+              View All Projects
+            </a>
+          </div>
         </div>
       </section>
     </div>

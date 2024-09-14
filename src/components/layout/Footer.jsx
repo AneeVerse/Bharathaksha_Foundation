@@ -20,11 +20,11 @@ const quikLinks = [
     url: "/home/get-involved",
   },
   {
-    name: "About",
+    name: "About Us",
     url: "/home/about",
   },
   {
-    name: "Contact",
+    name: "Contact Us",
     url: "/home/contact",
   },
 ];
@@ -35,22 +35,52 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* About Us */}
-          <div className="flex-1">
-            <h2 className="text-white text-lg font-bold mb-4">
-              <span className="text-[#8ac240]">Bharataksha</span>{" "}
-              <span>Foundation</span>
-            </h2>
-            <p className="text-gray-400">
-              We are a non-profit charity organization focused on making the
-              world a better place by helping those in need.
-            </p>
+          <div className="flex-1 ">
+            <div className=" inline-flex flex-col justify-center">
+              <img
+                src="/logo/logo-tsp.webp"
+                alt="Bharathaksha Foundation Logo"
+                className="w-[80px] h-[80px] self-center"
+              />
+              <h2 className="text-white text-lg font-bold mb-4">
+                <span className="text-[#8ac240]">Bharataksha</span>{" "}
+                <span>Foundation</span>
+              </h2>
+            </div>
+            <div className="text-gray-400">
+            <Link
+                href={"mailto:bharathakshafoundation@gmail.com"}
+                className=" block hover:text-[#8ac240]"
+              >
+                Email: bharathakshafoundation@gmail.com
+              </Link>
+              <Link
+                href={"tel:+919222285780"}
+                className="block hover:text-[#8ac240]"
+              >
+                Phone: +91 9222285780
+              </Link>
+            </div>
+            <div className="flex space-x-4 mt-4">
+                <a href="#" className="text-gray-400 hover:text-[#8ac240]">
+                  <FaFacebook size={24} />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-[#8ac240]">
+                  <FaTwitter size={24} />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-[#8ac240]">
+                  <FaInstagram size={24} />
+                </a>
+              </div>
+            {/* <p>Address: Office No. 03,  Plot No. 45, near HP Petrol Pump, Seawoods West, Sector 44, Seawoods, Navi Mumbai, Maharashtra 400706</p> */}
           </div>
-
 
           {/* Quick Links */}
           <div className="flex-1 flex flex-col md:items-center">
-            <div >
-              <h2 className="text-white text-lg font-bold text-start mb-4">Quick Links</h2>
+            <div>
+              <h2 className="text-white text-lg font-bold text-start mb-4">
+                Quick Links
+              </h2>
               <ul>
                 {quikLinks.map((val, ind) => {
                   return (
@@ -67,22 +97,15 @@ export default function Footer() {
 
           {/* Contact Us */}
           <div className="flex-1 flex flex-col md:items-end">
-            <div>
-              <h2 className="text-white text-lg font-bold mb-4">Contact Us</h2>
-              <p>Email: contact@gracious.org</p>
-              <p>Phone: +123 456 7890</p>
-              <p>Address: 123 Charity Street, Kindness City</p>
-              <div className="flex space-x-4 mt-4">
-                <a href="#" className="text-gray-400 hover:text-[#8ac240]">
-                  <FaFacebook size={24} />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-[#8ac240]">
-                  <FaTwitter size={24} />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-[#8ac240]">
-                  <FaInstagram size={24} />
-                </a>
-              </div>
+            <div className="flex flex-col gap-1">
+              <h2 className="text-white text-lg font-bold mb-4">Address</h2>
+            
+              <Link href={""} className="block hover:text-[#8ac240]">
+              <b>Registered Address:</b> 202, Himalaya Prestige, Udupi-Manipal Road, Kunjibettu, Udupi, Karnataka  576102
+              </Link>
+              {/* <hr className="my-2 w-[100px] mx-auto" /> */}
+              <p className="mt-1" ><b>Navi Mumbai Address:</b> Office No. 03,  Plot No. 45, near HP Petrol Pump, Seawoods West, Sector 44, Seawoods, Navi Mumbai, Maharashtra 400706</p>
+            
             </div>
           </div>
         </div>

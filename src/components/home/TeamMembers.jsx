@@ -2,59 +2,60 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { FaAngleRight , FaAngleLeft} from "react-icons/fa6";
+import Link from "next/link";
 // Team member data
 const teamMembers = [
   {
-    name: "Josefin Fashkin",
-    title: "Senior Developer",
-    image: "/images/home/team_1.jpg",
+    name: "Venod Nayak",
+    title: "Managing Director",
+    image: "/images/home/team/Venod-Nayak.jpeg",
     socialLinks: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/venod-nayak-68196155/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "#",
     },
   },
   {
-    name: "John Doe",
-    title: "UI/UX Designer",
-    image: "/images/home/team_2.jpg",
+    name: "Venkat Pulla ",
+    title: "Advisor",
+    image: "/images/home/team/Venkat-Pulla.jpeg",
     socialLinks: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/venkat-pulla-a196998/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "#",
     },
   },
   {
-    name: "Jane Smith",
-    title: "Project Manager",
-    image: "/images/home/team_1.jpg",
+    name: "Keshav Walke",
+    title: "Professor & Officiating Principa",
+    image: "/images/home/team/Keshav-Walke.jpeg",
     socialLinks: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/keshav-walke-93178a1b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "#",
     },
   },
   {
-    name: "David Brown",
-    title: "Backend Engineer",
-    image: "/images/home/team_2.jpg",
+    name: "Nimesh Sheth",
+    title: "Deputy Manager",
+    image: "/images/home/team/Nimesh-Sheth.jpeg",
     socialLinks: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/nimesh-sheth-06a20316/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "#",
     },
   },
   {
-    name: "Emily Clark",
-    title: "Marketing Specialist",
-    image: "/images/home/team_1.jpg",
+    name: "Abhinav Burman",
+    title: "CMD Brighton Facility",
+    image: "/images/home/team/Abhinav-Burman.jpeg",
     socialLinks: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/abhinav-burman-0871a1140/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "#",
     },
   },
   {
-    name: "Alex Johnson",
-    title: "Frontend Developer",
-    image: "/images/home/team_2.jpg",
+    name: "Rohit Udyavar",
+    title: "Marketer",
+    image: "/images/home/team/Rohit-Udyavar.jpeg",
     socialLinks: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/rohitudyavar/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "#",
     },
   },
@@ -83,7 +84,7 @@ const TeamMembers = () => {
     <div className=" py-[70px] px-6 md:px-12 lg:px-24">
        <div className="text-center flex flex-col justify-center gap-3">
             <h2 className="text-black text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
-            Meet Our Associates
+            Meet The Team
             </h2>
             <div className="inline-block self-center h-1 bg-[#8ac240] w-[70px] rounded-full"/>
 
@@ -98,8 +99,11 @@ const TeamMembers = () => {
             }}
           >
             {teamMembers.map((member, index) => (
-              <div
+              <Link 
                 key={index}
+                href={member.socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white rounded-lg border  p-6 text-center transition-transform duration-300 group mx-2 min-w-[270px]" // Adjust width as needed
               >
                 <div className="flex justify-center mb-4">
@@ -116,13 +120,10 @@ const TeamMembers = () => {
                 <h4 className="text-lg font-semibold text-[#8ac240]">
                   {member.name}
                 </h4>
-                <p className="text-sm text-gray-500 mb-4">{member.title}</p>
-                <div className="flex justify-center gap-4">
+                {/* <p className="text-sm text-gray-500 mb-4">{member.title}</p> */}
+                <div className="flex justify-center mt-2 gap-4">
                   {member.socialLinks.linkedin && (
-                    <a
-                      href={member.socialLinks.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <span
                       className="text-[#0077b5] hover:text-[#005582]"
                     >
                       <svg
@@ -133,7 +134,7 @@ const TeamMembers = () => {
                       >
                         <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.13 1 2.5 1s2.48 1.13 2.48 2.5zM.55 8.58h4.89v14.92H.55zM8.45 8.58h4.68v2.03h.06c.65-1.23 2.24-2.52 4.6-2.52 4.92 0 5.83 3.23 5.83 7.42v8.99H19.1v-7.96c0-1.9-.03-4.34-2.64-4.34-2.65 0-3.06 2.07-3.06 4.21v8.09H8.45V8.58z" />
                       </svg>
-                    </a>
+                    </span>
                   )}
                   {/* {member.socialLinks.twitter && (
                     <a
@@ -153,7 +154,7 @@ const TeamMembers = () => {
                     </a>
                   )} */}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

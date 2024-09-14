@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { GrGroup } from "react-icons/gr";
+import { SiTestcafe } from "react-icons/si";
 import { FaRegUser } from "react-icons/fa";
 
 const KnowYourself = () => {
@@ -12,7 +13,7 @@ const KnowYourself = () => {
       {/* <div className="absolute bottom-10 left-10 w-48 h-48 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse"></div> */}
       
       {/* Main Content */}
-      <div className="flex  container mx-auto flex-col-reverse md:flex-row-reverse gap-10 h-full items-stretch justify-between md:space-x-8 space-y-8 md:space-y-0 px-4 md:px-16 relative z-10">
+      <div className="flex  container mx-auto flex-col-reverse lg:flex-row-reverse gap-10 h-full items-stretch justify-between lg:space-x-8 space-y-8 lg:space-y-0 px-4 lg:px-16 relative z-10">
         {/* Main Image */}
         <div className="relative flex justify-center h-[400px] flex-1 md:w-full rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
           <img
@@ -36,14 +37,22 @@ const KnowYourself = () => {
           </p>
 
           {/* Button */}
-          <Link
+          <div className="flex gap-8 mt-3">
+            
+          <SiTestcafe className="text-[#8ac240] h-[70px] w-[70px] self-center animate-bounce" />
+            
+            <div className=""> <Link
             href="/know-yourself"
-            className="bg-[#8ac240] flex gap-3 w-full text-white font-semibold justify-center items-center px-6 py-3 rounded-full hover:bg-[#5d8626] transition duration-300 ease-in-out transform hover:scale-105"
+            className="bg-[#8ac240] flex gap-3 w-full text-white font-semibold justify-center items-center px-8 py-2 rounded-full hover:bg-[#5d8626] transition duration-300 ease-in-out transform hover:scale-105"
           >
-            <FaRegUser className="text-[#ffffff] w-5 h-5 self-center" />
+
+            {/* <FaRegUser className="text-[#ffffff] w-5 h-5 self-center" /> */}
             <span className="text-lg">Know Yourself</span>
           </Link>
         </div>
+        </div>        
+        </div>
+          
       </div>
     </div>
   );
