@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* our partner section  */
+ @keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-229px); 
+  }
+}
+
+.animate-slide {
+  animation: slide 0.5s ease-in-out forwards;
+} 
