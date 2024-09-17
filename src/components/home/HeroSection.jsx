@@ -45,10 +45,13 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative  mt-[90px] h-[300px]   md:h-[500px] lg:h-screen overflow-hidden">
-      {/* Image container with slide animation */}
+    <div className="relative mt-[90px] h-[calc(100vh-90px)] sm:h-[400px]  md:h-[500px] lg:h-[calc(100vh-90px)] overflow-hidden">
+  {/* for mbbile  */}
+      <img src="images/ongoing/img3.jpg" alt="banner" 
+      className="h-full w-full absolute top-0 object-cover" />
+          {/* Image container with slide animation */}
       <div
-        className="absolute top-[0px] h-[300px] md:h-[500px] lg:h-full left-0 w-full flex transition-transform duration-700"
+        className="absolute top-[0px] hidden sm:flex sm:h-[400px] md:h-[500px] lg:h-full left-0 w-full  transition-transform duration-700"
         style={{
           transform: `translateX(-${imageIndex * 100}%)`,
           minHeight: "200px"
@@ -68,17 +71,17 @@ const HeroSection = () => {
         ))}
       </div>
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+      <div className="absolute inset-0 top-0 bg-black opacity-60"></div>
 
-      <div className="relative z-40 flex items-center justify-center h-full text-center text-white px-4">
+      <div className="relative z-40 flex items-center gap-8 justify-center h-full text-center text-white px-4">
         <div>
-         <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight">          
-          Bharataksha Foundation
+         <h1 className="text-4xl md:text-6xl font-bold leading-tight">          
+         <span className=" tracking-wider text-[#8ac240]">Bharataksha</span> <span className="text-[#ffffff]"> Foundation</span>
           </h1>  
-          <p className="text-xl md:text-3xl mt-3">Soul as Bharat that is India</p>
+          <p className="text-xl text-gray-200 font-semibold md:text-3xl mt-3">Soul as Bharat that is India</p>
          
 
-          <div className="mt-8 flex justify-center space-x-4">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href={"/home/about"}
               className="bg-yellow-500 text-black font-semibold px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-yellow-600"
@@ -87,7 +90,7 @@ const HeroSection = () => {
             </Link>
             <Link
               href={"/know-yourself"}
-              className="bg-transparent border-2 border-white px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white hover:text-black flex items-center"
+              className="bg-transparent border-2 border-white text-center px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white hover:text-black"
             >
               Know Yourself
             </Link>
@@ -96,7 +99,7 @@ const HeroSection = () => {
       </div>
 
       {/* Left and Right Arrows */}
-      <div className="flex justify-between items-center px-0 sm:px-4 md:px-10">
+      <div className="hidden sm:flex justify-between items-center px-0 sm:px-4 md:px-10">
         <button
           onClick={handlePrevious}
           className=" translate-y-[-50%]  top-1/2 z-40  absolute text-white p-2 rounded-full opacity-80 hover:opacity-100"

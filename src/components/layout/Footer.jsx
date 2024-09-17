@@ -1,4 +1,5 @@
 // components/Footer.js
+import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
@@ -116,7 +117,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Bharataksha Foundation. All Rights
             Reserved.
           </p>
-          <p>Powered By Aneeverse</p>
+          <Link href={"https://aneeverse.com/en/"} className="hover:text-[#8ac240] flex items-center gap-2">Powered By Aneeverse
+          <Image src={"/logo/aneeverse-logo.png"} width={16} height={16} alt="aneeverse logo"/></Link>
         </div>
       </div>
     </footer>
