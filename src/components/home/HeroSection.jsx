@@ -75,7 +75,7 @@ const HeroSection = () => {
          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight">          
           Bharataksha Foundation
           </h1>  
-          <p className="text-xl md:text-3xl mt-3">Soul as Bharat</p>
+          <p className="text-xl md:text-3xl mt-3">Soul as Bharat that is India</p>
          
 
           <div className="mt-8 flex justify-center space-x-4">
