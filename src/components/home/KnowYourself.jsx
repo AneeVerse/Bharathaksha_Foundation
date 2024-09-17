@@ -7,7 +7,7 @@ import { FaRegUser } from "react-icons/fa";
 
 const KnowYourself = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-bl from-white via-[#f0f8f7] to-[#f2f6f1] py-[70px]">
+    <div className="relative overflow-hidden bg-gradient-to-bl from-white via-[#f0f8f7] to-[#f2f6f1] py-[20px] sm:py-[70px]">
       {/* Decorative Background Elements */}
       {/* <div className="absolute top-10 right-10 w-32 h-32 bg-[#8ac240] opacity-20 rounded-full blur-xl animate-pulse"></div> */}
       {/* <div className="absolute bottom-10 left-10 w-48 h-48 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse"></div> */}

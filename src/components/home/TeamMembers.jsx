@@ -81,7 +81,7 @@ const TeamMembers = () => {
   };
 
   return (
-    <div className=" py-[70px] px-6 md:px-12 lg:px-24">
+    <div className=" py-[20px] sm:py-[70px] px-6 md:px-12 lg:px-24">
        <div className="text-center flex flex-col justify-center gap-3">
             <h2 className="text-black text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
             Meet The Team

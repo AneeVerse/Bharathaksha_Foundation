@@ -16,16 +16,19 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Bharataksha Foundation",
-  description: "At Bharathaksha Foundation, we believe in empowering individuals and communities through the twin pillars of education and healthcare. Established with a vision to make a meaningful difference in society, our foundation focuses on providing comprehensive career guidance and accessible healthcare services to those in need.",
+  description:
+    "At Bharathaksha Foundation, we believe in empowering individuals and communities through the twin pillars of education and healthcare. Established with a vision to make a meaningful difference in society, our foundation focuses on providing comprehensive career guidance and accessible healthcare services to those in need.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-      <link rel="manifest" href="/site.webmanifest" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

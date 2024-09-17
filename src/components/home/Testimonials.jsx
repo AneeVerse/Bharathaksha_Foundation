@@ -39,7 +39,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="py-[70px] ">
+    <div className="py-[20px] sm:py-[70px]">
      {/* <div className="bg-gradient-to-r from-green-900  to-[#0e2f50] h-[300px] sm:h-[400px]"> */}
      <div className="relative overflow-hidden bg-gradient-to-br from-white  h-[300px] sm:h-[400px] via-[#f0f8f7] to-[#f2f6f1]">
       {/* Decorative Background Elements */}

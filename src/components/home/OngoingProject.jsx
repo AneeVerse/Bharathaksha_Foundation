@@ -25,7 +25,7 @@ const OngoingProject = () => {
   return (
     <div>
       {/* Project Highlights */}
-      <section className="py-[70px] bg-gradient-to-b from-white via-[#f0f8f7] to-[#f2f6f1]">
+      <section className="py-[20px] sm:py-[70px] bg-gradient-to-b from-white via-[#f0f8f7] to-[#f2f6f1]">
         {/* Section Header */}
         <div className="text-center flex flex-col justify-center gap-3">
           <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-semibold">

@@ -3,7 +3,7 @@ import { logout, setUserFromLocalStorage } from '@/store/slice/userSlice';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa'; // Profile icon
+import { GoPerson } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
 
 const menuList = [
@@ -157,7 +157,7 @@ export default function Navbar() {
               {isLoggedIn && (
                 <div className="relative group">
                   <button className="flex items-center text-black hover:text-[#8ac240]">
-                    <FaUserCircle size={25} />
+                    <GoPerson size={25} />
                   </button>
 
                   {/* Profile dropdown */}

@@ -74,23 +74,24 @@ const HeroSection = () => {
       <div className="absolute inset-0 top-0 bg-black opacity-60"></div>
 
       <div className="relative z-40 flex items-center gap-8 justify-center h-full text-center text-white px-4">
-        <div>
-         <h1 className="text-4xl md:text-6xl font-bold leading-tight">          
-         <span className=" tracking-wider text-[#8ac240]">Bharataksha</span> <span className="text-[#ffffff]"> Foundation</span>
+        <div className="flex flex-col gap-5">
+         <h1 className="text-[50px] md:text-6xl font-bold leading-tight">          
+         <span className="text-[#8ac240]">Bharataksha</span> <span className="text-[#ffffff]"> Foundation</span>
           </h1>  
-          <p className="text-xl text-gray-200 font-semibold md:text-3xl mt-3">Soul as Bharat that is India</p>
+          <p className="text-xl hidden sm:block text-gray-200 font-semibold md:text-3xl mt-3">Soul of Bharat that is India</p>
+          <p className="text-2xl block sm:hidden text-gray-200 font-semibold md:text-3xl mt-3">Soul of Bharat that is India</p>
          
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href={"/home/about"}
-              className="bg-yellow-500 text-black font-semibold px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-yellow-600"
+              className="bg-yellow-500 text-black font-bold px-5 sm:px-6 py-3 rounded-full hover:bg-yellow-600"
             >
-              About Us
+              Who we are
             </Link>
             <Link
               href={"/know-yourself"}
-              className="bg-transparent border-2 border-white text-center px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white hover:text-black"
+              className="bg-transparent font-bold border-2 border-white text-center px-5 sm:px-6 py-3 rounded-full hover:bg-white hover:text-black"
             >
               Know Yourself
             </Link>
