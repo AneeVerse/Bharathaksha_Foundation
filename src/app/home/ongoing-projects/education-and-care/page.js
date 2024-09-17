@@ -5,7 +5,7 @@ const page = () => {
     <div className="bg-white mt-[90px] min-h-screen py-16">
       {/* Title Section */}
       <div className="mx-auto px-6 sm:px-8 text-center">
-        <h1 className="text-5xl font-bold text-[#0e2f50] mb-6">
+        <h1 className="text-3xl sm:text-5xl font-bold text-[#0e2f50] mb-6">
           Education and Career Guidance
         </h1>
         <p className="text-xl text-gray-700 max-w-4xl mx-auto">

@@ -52,19 +52,19 @@ export default function Login() {
     }, []);
 
   return (
-    <div className="min-h-screen px-4 flex items-center justify-center bg-gradient-to-r from-green-100 to-blue-200">
+    <div className="min-h-screen px-4 py-8 flex items-center justify-center bg-gradient-to-r from-green-100 to-blue-200">
     <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02]">
       <div className="md:flex w-full">
         {/* Left Side */}
-        <div className="w-full md:w-1/2 p-10">
+        <div className="w-full md:w-1/2 px-5 py-7 sm:py-10 sm:px-10">
           <div className="flex items-center text-lg sm:text-xl mb-4">
             <img
               src="/logo/logo.webp"
               alt="Bharataksha Foundation Logo"
-              className="w-[45px] sm:w-[55px] h-[45px] sm:h-[55px] shadow-lg rounded-full"
+              className="w-[40px] sm:w-[55px] h-[40px] sm:h-[55px] shadow-lg rounded-full"
             />
-            <div className="text-[#8ac240] font-bold ml-3 text-xl sm:text-2xl">Bharataksha</div>
-            <span className="ml-2 text-[#0e2f50] font-bold text-xl sm:text-2xl">Foundation</span>
+            <div className="text-[#8ac240] font-bold ml-3 text-lg sm:text-2xl">Bharataksha</div>
+            <span className="ml-2 text-[#0e2f50] font-bold text-lg sm:text-2xl">Foundation</span>
           </div>
           <h2 className="text-lg font-bold text-center text-gray-600 mb-6 tracking-wider mt-2">Login to your Account</h2>
   

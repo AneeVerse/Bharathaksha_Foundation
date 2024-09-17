@@ -45,10 +45,10 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative  mt-[90px] h-[400px]   md:h-[500px] lg:h-screen overflow-hidden">
+    <div className="relative  mt-[90px] h-[300px]   md:h-[500px] lg:h-screen overflow-hidden">
       {/* Image container with slide animation */}
       <div
-        className="absolute top-[0px] h-[400px] md:h-[500px] lg:h-full left-0 w-full flex transition-transform duration-700"
+        className="absolute top-[0px] h-[300px] md:h-[500px] lg:h-full left-0 w-full flex transition-transform duration-700"
         style={{
           transform: `translateX(-${imageIndex * 100}%)`,
           minHeight: "200px"
@@ -72,7 +72,7 @@ const HeroSection = () => {
 
       <div className="relative z-40 flex items-center justify-center h-full text-center text-white px-4">
         <div>
-         <h1 className="text-4xl md:text-6xl font-bold leading-tight">          
+         <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold leading-tight">          
           Bharataksha Foundation
           </h1>  
           <p className="text-xl md:text-3xl mt-3">Soul as Bharat</p>
@@ -81,13 +81,13 @@ const HeroSection = () => {
           <div className="mt-8 flex justify-center space-x-4">
             <Link
               href={"/home/about"}
-              className="bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-600"
+              className="bg-yellow-500 text-black font-semibold px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-yellow-600"
             >
               About Us
             </Link>
             <Link
               href={"/know-yourself"}
-              className="bg-transparent border-2 border-white px-6 py-3 rounded-full hover:bg-white hover:text-black flex items-center"
+              className="bg-transparent border-2 border-white px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white hover:text-black flex items-center"
             >
               Know Yourself
             </Link>
@@ -96,13 +96,13 @@ const HeroSection = () => {
       </div>
 
       {/* Left and Right Arrows */}
-      <div className="flex justify-between items-center px-4 md:px-10">
+      <div className="flex justify-between items-center px-0 sm:px-4 md:px-10">
         <button
           onClick={handlePrevious}
-          className="bg-white translate-y-[-50%]  top-1/2 z-40  absolute text-black p-2 rounded-full opacity-80 hover:opacity-100"
+          className=" translate-y-[-50%]  top-1/2 z-40  absolute text-white p-2 rounded-full opacity-80 hover:opacity-100"
         >
           <svg
-            className="w-6 h-6"
+            className="w-8 h-8"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -118,10 +118,10 @@ const HeroSection = () => {
         </button>
         <button
           onClick={handleNext}
-          className="bg-white translate-y-[-50%]  absolute top-1/2 right-5 md:right-10 z-40 text-black p-2 rounded-full opacity-80 hover:opacity-100"
+          className=" translate-y-[-50%]  absolute top-1/2 right-5 md:right-10 z-40 text-white p-2 rounded-full opacity-80 hover:opacity-100"
         >
           <svg
-            className="w-6 h-6"
+            className="w-8 h-8"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
