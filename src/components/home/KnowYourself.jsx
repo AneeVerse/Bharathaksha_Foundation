@@ -27,13 +27,10 @@ const KnowYourself = () => {
         <div className="w-full flex-1 text-left flex flex-col justify-between py-5 gap-6 animate-fadeIn">
           <h2 className="text-lg font-semibold text-[#0e2f50]">Know Yourself</h2>
           <h1 className="text-3xl md:text-4xl font-semibold text-[#8ac240] leading-snug">
-            Step Forward Serve The Humanity Reach Out & Help
+            Empowering Through Education, Healthcare, and Opportunity
           </h1>
           <p className="text-gray-700">
-            The secret to happiness lies in helping others. Never underestimate
-            the difference YOU can make in the lives of the poor, the abused,
-            and the helpless. Spread sunshine in their lives no matter what the
-            weather may be.
+          Bharathaksha Foundation is committed to transforming lives through education, career guidance, skill development, and accessible healthcare. By addressing the needs of the underprivileged, we aim to create a more inclusive, healthier, and prosperous India.
           </p>
 
           {/* Button */}

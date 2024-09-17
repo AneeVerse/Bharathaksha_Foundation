@@ -2,21 +2,21 @@ import React from 'react';
 
 const onGoingProjectLists = [
   {
-    title: "CARE Medical Project",
-    des: `Making healthcare accessible through affordable medicines, crowdfunding, and medical drop-box initiatives.`,
-    url: `/home/ongoing-projects`,
-    imgUrl: `/images/ongoing/img1.jpg`,
-  },
-  {
-    title: "Education for All",
-    des: `Empowering marginalized communities with educational resources and skill-building workshops.`,
-    url: `/home/ongoing-projects`,
+    title: "Education and Care",
+    des: `At Bharathaksha Foundation, we understand that the right guidance at the right time can transform lives. Our education initiatives support students and professionals in making informed career choices.`,
+    url: `/home/ongoing-projects/education-and-care`,
     imgUrl: `/images/ongoing/img2.jpg`,
   },
   {
-    title: "Skill Development",
-    des: `Offering vocational training programs to boost employment opportunities for the underprivileged.`,
-    url: `/home/ongoing-projects`,
+    title: "Health Cares",
+    des: `Access to quality healthcare is a fundamental right, and at Bharathaksha Foundation, we are committed to making it a reality for everyone through our innovative programs.`,
+    url: `/home/ongoing-projects/health-care`,
+    imgUrl: `/images/ongoing/img5.jpg`,
+  },
+  {
+    title: "Communities Funds",
+    des: `At Bharathaksha Foundation, we believe in empowering communities by enabling them to raise funds for critical needs such as healthcare, education, and community development.`,
+    url: `/home/ongoing-projects/communities-funds`,
     imgUrl: `/images/ongoing/img3.jpg`,
   },
 ];
@@ -47,7 +47,7 @@ const OngoingProject = () => {
                   <img
                     src={val.imgUrl}
                     alt={val.title}
-                    className="w-full h-48 object-cover rounded-lg mb-4 transition-opacity duration-300 hover:opacity-90"
+                    className="w-full h-[240px] object-cover rounded-lg mb-4 transition-opacity duration-300 hover:opacity-90"
                   />
 
                   {/* Project Title */}
@@ -73,14 +73,14 @@ const OngoingProject = () => {
           </div>
 
           {/* View All Projects Button */}
-          <div className="flex justify-center mt-12">
+          {/* <div className="flex justify-center mt-12">
             <a
               href="/home/ongoing-projects"
               className="px-10 py-3 bg-[#8ac240] text-white rounded-full hover:bg-[#5d8626] transition duration-300 ease-in-out transform hover:scale-105 text-lg font-semibold"
             >
               View All Projects
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

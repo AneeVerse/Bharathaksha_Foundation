@@ -103,10 +103,8 @@ export default function Page() {
       </section>
 
       {/* Call to Action Section */}
-      <section className=" py-16  relative overflow-hidden bg-gradient-to-br from-white via-[#f0f8f7] to-[#f2f6f1]">
-      {/* <div className="absolute top-5 left-10 w-40 h-40 bg-[#8ac240] opacity-20 rounded-full blur-xl animate-pulse"></div> */}
-      {/* <div className="absolute bottom-0 right-20 w-60 h-60 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse delay-500"></div> */}
-      
+      {/* <section className=" py-16  relative overflow-hidden bg-gradient-to-br from-white via-[#f0f8f7] to-[#f2f6f1]">
+   
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold">Ready to Make a Difference?</h2>
           <p className="mt-4 max-w-xl mx-auto text-gray-900">
@@ -121,7 +119,7 @@ export default function Page() {
              </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Call to Action Section */}
       {/* <section className="py-16 bg-gray-100">

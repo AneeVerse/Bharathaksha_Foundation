@@ -30,7 +30,7 @@ export default function Page() {
         </div>
 
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Highlight 1 */}
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
@@ -38,7 +38,7 @@ export default function Page() {
                 alt="CARE Medical Project"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
-              <h2 className="text-2xl font-bold mb-2">CARE Medical Project</h2>
+              <h2 className="text-2xl font-bold mb-2">Education and Career</h2>
               <p className="text-gray-600 mb-4">
                 Making healthcare accessible through affordable medicines,
                 crowdfunding, and medical drop-box initiatives.
@@ -58,7 +58,7 @@ export default function Page() {
                 alt="Education for All"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
-              <h2 className="text-2xl font-bold mb-2">Education for All</h2>
+              <h2 className="text-2xl font-bold mb-2">Health Care</h2>
               <p className="text-gray-600 mb-4">
                 Empowering marginalized communities with educational resources
                 and skill-building workshops.
@@ -78,7 +78,7 @@ export default function Page() {
                 alt="Skill Development"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
-              <h2 className="text-2xl font-bold mb-2">Skill Development</h2>
+              <h2 className="text-2xl font-bold mb-2">Communities Funds</h2>
               <p className="text-gray-600 mb-4">
                 Offering vocational training programs to boost employment
                 opportunities for the underprivileged.
@@ -91,31 +91,13 @@ export default function Page() {
               </a>
             </div>
 
-            {/* Highlight 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
-              <img
-                src="/images/ongoing/img4.jpg"
-                alt="Skill Development"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h2 className="text-2xl font-bold mb-2">Skill Development</h2>
-              <p className="text-gray-600 mb-4">
-                Offering vocational training programs to boost employment
-                opportunities for the underprivileged.
-              </p>
-              <a
-                href="#"
-                className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
-              >
-                Learn More
-              </a>
-            </div>
+           
           </div>
         </div>
       </section>
 
       {/* Detailed Projects Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-green-600">Our Current Efforts</h2>
@@ -125,9 +107,9 @@ export default function Page() {
             </p>
           </div>
 
-          {/* Project List */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Project 1 */}
+
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <img
                 src="/images/ongoing/img1.jpg"
@@ -155,8 +137,7 @@ export default function Page() {
               </a>
             </div>
 
-            {/* Project 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <img
                 src="/images/ongoing/img2.jpg"
                 alt="Education for All"
@@ -183,7 +164,7 @@ export default function Page() {
               </a>
             </div>
 
-            {/* Project 3 */}
+    
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <img
                 src="/images/ongoing/img3.jpg"
@@ -210,7 +191,7 @@ export default function Page() {
               </a>
             </div>
 
-            {/* Project 4 */}
+         
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
               <img
                 src="/images/ongoing/img4.jpg"
@@ -238,7 +219,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

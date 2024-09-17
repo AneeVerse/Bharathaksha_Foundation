@@ -6,15 +6,15 @@ import Image from "next/image";
 const bgImages = [
   {
     name: "First Image",
-    url: "/images/home/slider_home_first_1.jpg",
+    url: "/images/ongoing/img3.jpg",
   },
   {
     name: "Second Image",
-    url: "/images/home/slider_home_first_2.jpg",
+    url: "/images/ongoing/img4.jpg",
   },
   {
     name: "Third Image",
-    url: "/images/home/slider_home_first_3.jpg",
+    url: "/images/ongoing/img2.jpg",
   },
 ];
 
