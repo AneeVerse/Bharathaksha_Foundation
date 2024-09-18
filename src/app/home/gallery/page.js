@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import { IoMdClose } from "react-icons/io";
 
 const GalleryPage = () => {
   // Define categories and images
@@ -58,12 +59,15 @@ const GalleryPage = () => {
     { id: 51, src: '/gallery/img (51).jpg', category: 'Development', name: 'Event Image 51' },
   ];
   
-  const [activeCategory, setActiveCategory] = useState('All');
+
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedImage, setSelectedImage] = useState(null); // State for selected image
 
   // Filter images based on selected category
-  const filteredImages = activeCategory === 'All' 
-    ? imagesData 
-    : imagesData.filter(image => image.category === activeCategory);
+  const filteredImages =
+    activeCategory === "All"
+      ? imagesData
+      : imagesData.filter((image) => image.category === activeCategory);
 
   return (
     <div className="bg-gray-50 mt-[90px] py-8 min-h-screen">
@@ -75,7 +79,7 @@ const GalleryPage = () => {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center  flex-col sm:flex-row gap-4 mb-10">
+        {/* <div className="flex justify-center  flex-col sm:flex-row gap-4 mb-10">
           {categories.map((category) => (
             <button 
               key={category} 
@@ -85,22 +89,40 @@ const GalleryPage = () => {
               {category}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
           {filteredImages.map((image) => (
-            <div key={image.id} className="group">
-              <img 
-                src={image.src} 
-                alt={image.name} 
-                className="w-full h-64 object-cover rounded-lg shadow-lg group-hover:opacity-80 transition" 
+            <div key={image.id} className="group break-inside-avoid">
+              <img
+                src={image.src}
+                alt={image.name}
+                className="w-full h-auto object-cover rounded-lg shadow-lg group-hover:opacity-80 transition cursor-pointer"
+                onClick={() => setSelectedImage(image.src)} // Open popup on click
               />
-              <h3 className="text-lg text-gray-800 mt-4">{image.name}</h3>
+              {/* <h3 className="text-lg text-gray-800 mt-4">{image.name}</h3> */}
             </div>
           ))}
         </div>
       </div>
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+          <div className="relative">
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"
+            />
+            <button
+              className="absolute top-2 right-2 text-white font-bold"
+              onClick={() => setSelectedImage(null)} // Close popup
+            >
+             <IoMdClose className=' rounded-full text-3xl bg-[#00000086] p-[6px]'/>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -197,7 +197,7 @@ const AboutUs = () => {
             <p><strong>Inform:</strong> We prioritize sharing accurate and reliable information about education and healthcare. By raising awareness and providing insights, we help individuals make informed decisions and navigate complex challenges.</p>
             <p><strong>Guide:</strong> Through career counseling, mentorship, and healthcare advisory services, we offer guidance to help individuals reach their full potential in education and healthcare.</p>
           </div>
-            <h3 className="text-2xl font-semibold mb-4 mt-6">Join Us</h3>
+            {/* <h3 className="text-2xl font-semibold mb-4 mt-6">Join Us</h3>
             <p className="mb-4">
               At Bharathaksha Foundation, we are always looking for passionate individuals and organizations to join us in our mission. Whether you are looking to volunteer, partner with us, or support our initiatives, there are many ways to get involved and make a difference.
             </p>
@@ -208,11 +208,11 @@ const AboutUs = () => {
             <p>Bharathaksha Foundation</p>
             <p>Head office: 202, Himalaya Prestige,</p>
             <p>Udupi  Manipal Road, Kunjibettu, Udupi – 576106</p>
-            <p>Mumbai Office:</p>
+            <p>Mumbai Office:</p> */}
          
         </section>
 
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-6">Career Guidance for Marginalized Students</h2>
           <p>Our Career Guidance initiative helps marginalized students by providing career awareness, mentorship, and the necessary tools to pursue their ambitions.</p>
 
@@ -224,9 +224,9 @@ const AboutUs = () => {
             <li><strong>Resource Provision:</strong> We provide educational materials, financial assistance, and technology access to ensure students have the tools needed to succeed.</li>
             <li><strong>Partnerships with Schools and Communities:</strong> We collaborate with schools and communities to expand our reach and tailor our programs to local needs.</li>
           </ul>
-        </section>
+        </section> */}
 
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-6">CARE Medical Project</h2>
           <p>The CARE Medical Project is focused on making healthcare accessible and affordable to underserved communities through three initiatives: a generic medical store, medicine drop boxes, and crowdfunding for medicines.</p>
 
@@ -236,9 +236,9 @@ const AboutUs = () => {
             <li><strong>Medicine Drop Boxes:</strong> Unused, unexpired medicines are collected and redistributed to those in need, reducing waste and saving lives.</li>
             <li><strong>Crowdfunding for Medicines:</strong> We mobilize community support to raise funds for essential medicines for the underprivileged.</li>
           </ul>
-        </section>
+        </section> */}
 
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-6">LocalSupport.org: Empowering Communities</h2>
           <p>LocalSupport.org is a platform that connects community members, businesses, and organizations to meet essential needs and promote collaboration.</p>
 
@@ -252,7 +252,7 @@ const AboutUs = () => {
             <li><strong>Feedback and Reviews:</strong> Users can provide feedback to improve accountability and service delivery.</li>
             <li><strong>Data Analytics:</strong> Tracking and reporting key metrics to assess community impact and improve the platform’s services.</li>
           </ul>
-        </section>
+        </section> */}
         </div>
       </div>
     </div>

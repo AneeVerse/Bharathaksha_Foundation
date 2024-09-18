@@ -7,15 +7,15 @@ import { FaRegUser } from "react-icons/fa";
 
 const KnowYourself = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-bl from-white via-[#f0f8f7] to-[#f2f6f1] py-[20px] sm:py-[70px]">
+    <div className="relative overflow-hidden bg-gradient-to-bl from-white via-[#f0f8f7] to-[#f2f6f1] pt-[10px] pb-[40px] md:pb-[70px] md:pt-[70px]">
       {/* Decorative Background Elements */}
       {/* <div className="absolute top-10 right-10 w-32 h-32 bg-[#8ac240] opacity-20 rounded-full blur-xl animate-pulse"></div> */}
       {/* <div className="absolute bottom-10 left-10 w-48 h-48 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse"></div> */}
       
       {/* Main Content */}
-      <div className="flex  container mx-auto flex-col-reverse lg:flex-row-reverse gap-10 h-full items-stretch justify-between lg:space-x-8 space-y-8 lg:space-y-0 px-4 lg:px-16 relative z-10">
+      <div className="flex  container mx-auto flex-col-reverse lg:flex-row-reverse sm:gap-10 h-full items-stretch justify-between lg:space-x-8 space-y-8 lg:space-y-0 px-4 lg:px-16 relative z-10">
         {/* Main Image */}
-        <div className="relative flex justify-center h-[400px] flex-1 md:w-full rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+        <div className="relative flex justify-center h-[300px] sm:h-[400px] flex-1 md:w-full rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
           <img
             src="/images/ongoing/img1.jpg"
             alt="about us image"
@@ -24,9 +24,9 @@ const KnowYourself = () => {
         </div>
 
         {/* Right Side - Text */}
-        <div className="w-full flex-1 text-left flex flex-col justify-between py-5 gap-6 animate-fadeIn">
-          <h2 className="text-lg font-semibold text-[#0e2f50]">Know Yourself</h2>
-          <h1 className="text-3xl md:text-4xl font-semibold text-[#8ac240] leading-snug">
+        <div className="w-full flex-1 text-left flex flex-col justify-between  py-2 sm:py-5 gap-4 sm:gap-6 animate-fadeIn">
+          <h2 className="text-lg font-semibold text-[#0e2f50]">{"Know Yourself".toUpperCase()}</h2>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl  font-semibold text-[#8ac240] leading-snug">
             Empowering Through Education, Healthcare, and Opportunity
           </h1>
           <p className="text-gray-700">

@@ -72,7 +72,7 @@ const OurPartner = () => {
   }, [translateX]);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-white via-[#f0f8f7] to-[#f2f6f1] py-[20px] sm:py-[70px]">
+    <div className="relative overflow-hidden bg-gradient-to-br from-white via-[#f0f8f7] to-[#f2f6f1] py-[40px] md:py-[70px]">
       {/* Decorative Background Elements */}
       {/* <div className="absolute top-8 left-10 w-40 h-40 bg-[#8ac240] opacity-20 rounded-full blur-xl animate-pulse"></div> */}
       {/* <div className="absolute bottom-0 right-20 w-60 h-60 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse delay-500"></div> */}
@@ -80,7 +80,7 @@ const OurPartner = () => {
       <div className="px-2 sm:px-5 md:px-10">
         <div className="text-center flex flex-col justify-center gap-3">
           <h2 className="text-black text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
-            Partners with
+            {"Partners with".toUpperCase()}
           </h2>
           <div className="inline-block self-center h-1 bg-[#8ac240] w-[70px] rounded-full" />
         </div>

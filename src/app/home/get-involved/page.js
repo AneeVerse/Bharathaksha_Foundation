@@ -106,6 +106,26 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Join Us Section */}
+      <section className="bg-white py-8 px-4 text-center">
+        <div className="max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-900">Join Us</h2>
+        <p className="mt-4 text-gray-700">
+          At Bharathaksha Foundation, we are always looking for passionate individuals and organizations to join us in our mission. 
+          Whether you are looking to volunteer, partner with us, or support our initiatives, there are many ways to get involved and make a difference.
+        </p>
+        <p className="mt-2 text-gray-700">
+          Together, we can build a brighter future through education and healthcare.
+        </p>
+        <div className="mt-6">
+          <p className="text-lg font-bold text-gray-900">Contact Us</p>
+          <p className="text-gray-600">Bharathaksha Foundation</p>
+          <p className="text-gray-600">Head office: 202, Himalaya Prestige, Udupi Manipal Road, Kunjibettu, Udupi – 576106</p>
+          <p className="text-gray-600">Mumbai Office: Details Here</p>
+        </div>
+        </div>
+      </section>
     </div>
   );
 }

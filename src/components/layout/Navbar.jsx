@@ -14,7 +14,7 @@ const menuList = [
   },
   {
     name: "What we do",
-    url: "", // Non-clickable parent item
+    url: "/home/ongoing-projects", // Non-clickable parent item
     subLink: [
       {
         name: "Education and Care",
@@ -27,7 +27,11 @@ const menuList = [
       {
         name: "Communities Funds",
         url: "/home/ongoing-projects/communities-funds"
-      }
+      },
+      {
+        name: "LocalSupport",
+        url: "/home/ongoing-projects/localsupport"
+      },
     ]
   },
   {

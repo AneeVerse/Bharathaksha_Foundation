@@ -24,7 +24,7 @@ const AboutSection = () => {
 
         {/* Right Side - Text */}
         <div className="w-full flex-1 md:text-left flex flex-col h-full gap-3 sm:gap-6 justify-between animate-fadeIn">
-          <h2 className="text-lg font-semibold text-[#0e2f50]">Introduction</h2>
+          <h2 className="text-lg font-semibold text-[#0e2f50]">{"Introduction".toUpperCase()}</h2>
           <h1 className=" text-2xl sm:text-3xl md:text-4xl font-semibold text-[#8ac240] leading-snug">
             Step Forward Serve The Humanity Reach Out & Help
           </h1>
@@ -35,11 +35,11 @@ const AboutSection = () => {
             strives to empower individuals and create a more inclusive society.
           </p>
 
-          {/* Work as an Intern Section */}
-       <div className="flex justify-center sm:justify-normal gap-4 sm:gap-8 mt-3">
+        {/* Work as an Intern Section */}
+         <div className="flex justify-center sm:justify-normal gap-4 sm:gap-8 mt-3">
             <GrGroup className="text-[#8ac240] h-[40px] w-[40px] sm:h-[70px] sm:w-[70px] self-center animate-bounce" />
             <div className="flex flex-row items-center gap-4 ">
-     <div>
+         <div>
               <Link
                 href="/home/about"
                 className="bg-[#8ac240] block text-white font-semibold px-12 py-3 rounded-full hover:bg-[#5d8626] duration-300 min-w-max"

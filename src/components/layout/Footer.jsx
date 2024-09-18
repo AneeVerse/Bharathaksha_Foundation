@@ -37,13 +37,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* About Us */}
           <div className="flex-1 ">
-            <div className=" inline-flex flex-col justify-center">
+            <div className=" flex md:inline-flex flex-col justify-center">
               <img
                 src="/logo/logo-tsp.webp"
                 alt="Bharathaksha Foundation Logo"
                 className="w-[80px] h-[80px] self-center"
               />
-              <h2 className="text-white text-lg font-bold mb-4">
+              <h2 className="text-white text-center text-lg font-bold mb-4">
                 <span className="text-[#8ac240]">Bharataksha</span>{" "}
                 <span>Foundation</span>
               </h2>
@@ -117,7 +117,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Bharataksha Foundation. All Rights
             Reserved.
           </p>
-          <Link href={"https://aneeverse.com/en/"} className="hover:text-[#8ac240] flex items-center gap-2">Powered By Aneeverse
+
+          <Link href={"https://aneeverse.com/en/"} className="hover:text-[#8ac240] flex justify-center text-center items-center gap-2">Managed & Designed By Aneeverse
           <Image src={"/logo/aneeverse-logo.png"} width={16} height={16} alt="aneeverse logo"/></Link>
         </div>
       </div>
