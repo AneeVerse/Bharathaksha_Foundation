@@ -71,7 +71,7 @@ const QuizPage = () => {
 
   if(isLoading) return <Loader/>
   return (
-    <div className="p-6 mt-[90px] bg-gray-100 min-h-screen">
+    <div className="mt-[90px] bg-gray-100 min-h-screen">
           {/* Title and Description */}
       <div className="relative h-[230px] w-full">
         <Image
@@ -88,7 +88,7 @@ const QuizPage = () => {
           </p>
         </div>
       </div>
-      <div className="text-center flex flex-col my-8 justify-center gap-3">
+      <div className="text-center p-5 flex flex-col my-8 justify-center gap-3">
           <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-semibold">
           Choose a Quiz
           </h2>
