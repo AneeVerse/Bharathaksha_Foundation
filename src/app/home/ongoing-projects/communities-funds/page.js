@@ -2,13 +2,13 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div className="bg-white mt-[90px] min-h-screen py-16">
+    <div className="bg-white mt-[90px] min-h-screen  py-8 md:py-16">
       {/* Title Section */}
       <div className="mx-auto px-6 sm:px-8 text-center">
         <h1 className="text-3xl sm:text-5xl font-bold text-[#0e2f50] mb-6">
           Communities Fundraising
         </h1>
-        <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+        <p className="text-xl text-gray-700 text-justify max-w-4xl mx-auto">
           At Bharathaksha Foundation, we believe in empowering communities by enabling them to raise funds for critical needs such as healthcare, education, and community development.
         </p>
       </div>

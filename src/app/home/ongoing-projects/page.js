@@ -34,7 +34,9 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Highlight 1 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link            
+            href="/home/ongoing-projects/education-and-care"
+             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img1.jpg"
                 alt="Education and Career"
@@ -44,16 +46,17 @@ export default function Page() {
               <p className="text-gray-600 mb-4">
                 Enabling access to education and career guidance for marginalized communities to foster economic growth.
               </p>
-              <Link
-                href="/home/ongoing-projects/education-and-care"
+              <span
                 className="inline-block px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300"
               >
                 Learn More
-              </Link>
-            </div>
+              </span>
+            </Link>
 
             {/* Highlight 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link
+            href="/home/ongoing-projects/health-care"
+             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img2.jpg"
                 alt="Healthcare Services"
@@ -63,16 +66,18 @@ export default function Page() {
               <p className="text-gray-600 mb-4">
                 Providing affordable healthcare through community health initiatives and accessible medical services.
               </p>
-              <Link
-                href="/home/ongoing-projects/health-care"
+              <span
+                
                 className="inline-block px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors duration-300"
               >
                 Learn More
-              </Link>
-            </div>
+              </span>
+            </Link>
 
             {/* Highlight 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link            
+            href="/home/ongoing-projects/communities-funds"
+             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img3.jpg"
                 alt="Community Funds"
@@ -82,16 +87,17 @@ export default function Page() {
               <p className="text-gray-600 mb-4">
                 Supporting local development projects through crowdfunding for healthcare, education, and livelihood enhancement.
               </p>
-              <Link
-                href="/home/ongoing-projects/communities-funds"
+              <span
                 className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
               >
                 Learn More
-              </Link>
-            </div>
+              </span>
+            </Link>
 
             {/* Highlight 4 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link            
+            href="/home/ongoing-projects/localsupport"
+             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img4.jpg"
                 alt="LocalSupport Platform"
@@ -101,13 +107,12 @@ export default function Page() {
               <p className="text-gray-600 mb-4">
                 Connecting community resources with local needs through a digital platform that fosters collaboration and volunteerism.
               </p>
-              <Link
-                href="/home/ongoing-projects/localsupport"
+              <sapn
                 className="inline-block px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
               >
                 Learn More
-              </Link>
-            </div>
+              </sapn>
+            </Link>
           </div>
         </div>
       </section>

@@ -2,13 +2,13 @@ import React from 'react';
 
 const LocalSupportPage = () => {
   return (
-    <div className="bg-white mt-[90px] min-h-screen py-16">
+    <div className="bg-white mt-[90px] min-h-screen py-8 md:py-16">
       {/* Title Section */}
       <div className="mx-auto px-6 sm:px-8 text-center">
         <h1 className="text-3xl sm:text-5xl font-bold text-[#0e2f50] mb-6">
           LocalSupport.org: Empowering Communities
         </h1>
-        <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+        <p className="text-xl text-gray-700 text-justify max-w-4xl mx-auto">
           LocalSupport.org is a platform that connects community members, businesses, and organizations to meet essential needs and promote collaboration.
         </p>
       </div>
