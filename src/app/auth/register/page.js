@@ -72,10 +72,10 @@ export default function Register() {
         <div className="flex items-center text-lg sm:text-xl mb-4">
           <img
             src="/logo/logo.webp"
-            alt="Bharataksha Foundation Logo"
+            alt="Bharathaksha Foundation Logo"
             className="w-[45px] sm:w-[55px] h-[45px] sm:h-[55px] shadow-lg rounded-full"
           />
-          <div className="text-[#8ac240] font-bold ml-3 text-lg sm:text-2xl">Bharataksha</div>
+          <div className="text-[#8ac240] font-bold ml-3 text-lg sm:text-2xl">Bharathaksha</div>
           <span className="ml-2 text-[#0e2f50] font-bold text-lg sm:text-2xl">Foundation</span>
         </div>
         <h2 className="text-lg font-bold text-center text-gray-600 mb-6 tracking-wider mt-2">Create an Account</h2>
@@ -165,7 +165,7 @@ export default function Register() {
         <div>
           <h2 className="text-3xl font-bold mb-4">Welcome, Friend!</h2>
           <p className="text-sm leading-relaxed">
-            Join Bharataksha Foundation and start your journey towards better health and well-being.
+            Join Bharathaksha Foundation and start your journey towards better health and well-being.
           </p>
         </div>
       </div>

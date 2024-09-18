@@ -50,7 +50,7 @@ export default function Page() {
               of others. Every helping hand counts!
             </p>
             <Link
-              href="https://wa.me/+919222285780?text=I%20am%20interested%20in%20volunteering%20with%20the%20Bharataksha%20Foundation!"
+              href="https://wa.me/+919222285780?text=I%20am%20interested%20in%20volunteering%20with%20the%20Bharathaksha%20Foundation!"
               className="mt-4 inline-block px-4 py-2 bg-[#1a4a79] text-white rounded-md hover:bg-[#0e2f50]"
             >
               Contact Us on WhatsApp
@@ -74,7 +74,7 @@ export default function Page() {
               those in need. Every dollar makes a difference.
             </p>
             <Link
-              href="https://wa.me/+919222285780?text=I%20would%20like%20to%20donate%20to%20the%20Bharataksha%20Foundation!"
+              href="https://wa.me/+919222285780?text=I%20would%20like%20to%20donate%20to%20the%20Bharathaksha%20Foundation!"
               className="mt-4 inline-block px-4 py-2 bg-[#1a4a79] text-white rounded-md hover:bg-[#0e2f50]"
             >
               Donate via WhatsApp
@@ -98,7 +98,7 @@ export default function Page() {
               funds for our projects. Together, we can do more!
             </p>
             <Link
-              href="https://wa.me/+919222285780?text=I%20am%20interested%20in%20fundraising%20for%20the%20Bharataksha%20Foundation!"
+              href="https://wa.me/+919222285780?text=I%20am%20interested%20in%20fundraising%20for%20the%20Bharathaksha%20Foundation!"
               className="mt-4 inline-block px-4 py-2 bg-[#1a4a79] text-white rounded-md hover:bg-[#0e2f50]"
             >
               Start Fundraising on WhatsApp

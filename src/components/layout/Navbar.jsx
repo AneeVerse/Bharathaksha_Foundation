@@ -110,8 +110,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[90px] px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href={"/"} className="flex items-center text-lg sm:text-2xl">
-            <img src="/logo/logo.webp" alt="Bharataksha Foundation Logo" className="w-[50px] sm:w-[60px] h-[50px] sm:h-[60px]" />
-            <div className="text-[#8ac240] font-bold">Bharataksha</div>
+            <img src="/logo/logo.webp" alt="Bharathaksha Foundation Logo" className="w-[50px] sm:w-[60px] h-[50px] sm:h-[60px]" />
+            <div className="text-[#8ac240] font-bold">Bharathaksha</div>
             <span className="ml-2 text-[#0e2f50] font-bold">Foundation</span>
           </Link>
 

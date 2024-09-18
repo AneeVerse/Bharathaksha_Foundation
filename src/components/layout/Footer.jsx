@@ -44,7 +44,7 @@ export default function Footer() {
                 className="w-[80px] h-[80px] self-center"
               />
               <h2 className="text-white text-center text-lg font-bold mb-4">
-                <span className="text-[#8ac240]">Bharataksha</span>{" "}
+                <span className="text-[#8ac240]">Bharathaksha</span>{" "}
                 <span>Foundation</span>
               </h2>
             </div>
@@ -114,7 +114,7 @@ export default function Footer() {
         {/* Footer bottom section */}
         <div className="mt-8 border-t border-gray-700 pt-6 gap-5 flex flex-col md:flex-row justify-between text-center md:text-left">
           <p>
-            &copy; {new Date().getFullYear()} Bharataksha Foundation. All Rights
+            &copy; {new Date().getFullYear()} Bharathaksha Foundation. All Rights
             Reserved.
           </p>
 

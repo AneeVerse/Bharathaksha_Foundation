@@ -60,10 +60,10 @@ export default function Login() {
           <div className="flex items-center text-lg sm:text-xl mb-4">
             <img
               src="/logo/logo.webp"
-              alt="Bharataksha Foundation Logo"
+              alt="Bharathaksha Foundation Logo"
               className="w-[40px] sm:w-[55px] h-[40px] sm:h-[55px] shadow-lg rounded-full"
             />
-            <div className="text-[#8ac240] font-bold ml-3 text-lg sm:text-2xl">Bharataksha</div>
+            <div className="text-[#8ac240] font-bold ml-3 text-lg sm:text-2xl">Bharathaksha</div>
             <span className="ml-2 text-[#0e2f50] font-bold text-lg sm:text-2xl">Foundation</span>
           </div>
           <h2 className="text-lg font-bold text-center text-gray-600 mb-6 tracking-wider mt-2">Login to your Account</h2>
@@ -136,7 +136,7 @@ export default function Login() {
           <div>
             <h2 className="text-3xl font-bold mb-4">Glad to have You back!</h2>
             <p className="text-sm leading-relaxed">
-              Welcome to Bharataksha Foundation, where we prioritize your well-being. Sign in to continue.
+              Welcome to Bharathaksha Foundation, where we prioritize your well-being. Sign in to continue.
             </p>
           </div>
         </div>

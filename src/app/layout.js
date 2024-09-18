@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Bharataksha Foundation",
+  title: "Bharathaksha Foundation",
   description:
     "At Bharathaksha Foundation, we believe in empowering individuals and communities through the twin pillars of education and healthcare. Established with a vision to make a meaningful difference in society, our foundation focuses on providing comprehensive career guidance and accessible healthcare services to those in need.",
   icons: {

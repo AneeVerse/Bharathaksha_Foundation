@@ -76,7 +76,7 @@ const HeroSection = () => {
       <div className="relative z-40 flex items-center gap-8 justify-center h-full text-center text-white px-4">
         <div className="flex flex-col gap-5">
          <h1 className="text-[52px] md:text-6xl font-bold leading-tight">          
-         <span className="text-[#8ac240]">Bharataksha</span> <span className="text-[#ffffff] tracking-wider"> Foundation</span>
+         <span className="text-[#8ac240]">Bharathaksha</span> <span className="text-[#ffffff] tracking-wider"> Foundation</span>
           </h1>  
           <p className="text-xl hidden sm:block text-gray-200 font-semibold md:text-3xl mt-3">Soul of Bharat That is India</p>
           <p className="text-2xl block sm:hidden text-gray-200 font-semibold md:text-3xl mt-3">Soul of Bharat That is India</p>
