@@ -8,19 +8,19 @@ import { useEffect, useState } from 'react';
 
 const quizzes = [
   {
-    id: '1',
+    id: 'rsi-test',
     imageSrc: '/images/ongoing/img1.jpg',
-    title: 'Quiz 1',
+    title: 'RSI Test',
     description: 'Description of Quiz 1',
   },
   {
-    id: '2',
+    id: 'adversity-quiz',
     imageSrc: '/images/ongoing/img2.jpg',
-    title: 'Quiz 2',
-    description: 'Description of Quiz 2',
+    title: 'Adversity Response Quize',
+    description: 'Adversity Response Profile Quize',
   },
   {
-    id: '3',
+    id: 'riasec-test',
     imageSrc: '/images/ongoing/img3.jpg',
     title: 'Quiz 3',
     description: 'Description of Quiz 3',
@@ -110,7 +110,7 @@ const QuizPage = () => {
               />
             </div>
             <div className="p-6">
-              <h2 className="text-2xl font-semibold mb-2 text-gray-800">{quiz.title}</h2>
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">{quiz.title}</h2>
               <p className="text-gray-600 mb-4">{quiz.description}</p>
               <Link 
               href={`/dashboard/exam/${quiz.id}`}

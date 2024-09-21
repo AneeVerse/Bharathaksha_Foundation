@@ -117,7 +117,7 @@ const TeamMembers = () => {
         {/* Team member cards */}
         <div className="overflow-hidden">
           <div
-            className="flex transition-transform duration-500 gap-5 ease-in-out"
+            className="flex ml-6 transition-transform duration-500 gap-5 ease-in-out"
             style={{
               transform: `translateX(-${currentIndex * (cardWidth + gap)}px)`, // Adjust for card width + margin
             }}

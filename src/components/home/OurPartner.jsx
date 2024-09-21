@@ -32,10 +32,10 @@ const logoList = [
     name: "client7",
     url: "/images/home/ourParnterSection/katch.webp",
   },
-  {
-    name: "client8",
-    url: "/images/home/ourParnterSection/manya .webp",
-  },
+  // {
+  //   name: "client8",
+  //   url: "/images/home/ourParnterSection/manya .webp",
+  // },
   {
     name: "client8",
     url: "/images/home/ourParnterSection/mountain 2.webp",
@@ -47,6 +47,7 @@ const logoList = [
 ];
 
 const OurPartner = () => {
+  const [marginLeft, setMarginLeft] = useState(0)
   const [logos, setLogos] = useState([...logoList, ...logoList]); // Duplicate the list for infinite loop
   const [translateX, setTranslateX] = useState(0); // State to control the translation
   const [logoIndex, setLogoIndex] = useState(0);
@@ -71,6 +72,16 @@ const OurPartner = () => {
     return () => clearInterval(slideInterval); // Clear interval on unmount
   }, [translateX]);
 
+
+  useEffect(()=>{
+    if(window.innerWidth < 500){      
+    const mlLeft = (window.innerWidth - 245) / 2;
+    setMarginLeft(mlLeft)
+    }
+  },[])
+  
+
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-white via-[#f0f8f7] to-[#f2f6f1] py-[40px] md:py-[70px]">
       {/* Decorative Background Elements */}
@@ -87,9 +98,10 @@ const OurPartner = () => {
 
         <div className="relative mt-10 overflow-hidden w-full">
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            className={`flex sm:ml-0 transition-transform duration-500 ease-in-out`}
             style={{
               transform: `translateX(${translateX}px)`, // Slide effect
+              marginLeft : `${marginLeft}px`
             }}
           >
             {logos.map((val, ind) => {
