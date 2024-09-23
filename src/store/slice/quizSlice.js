@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const submitQuizResults = createAsyncThunk(
   'quiz/submitQuizResults',
   async (quizData, { getState }) => {
-    let { user, answers, totalScore, categoryScores } = getState().quiz;
+    let { title, answers, totalScore, categoryScores } = getState().quiz;
     let questionBreakdown = categoryScores.questionBreakdown;
     categoryScores = categoryScores.categoryScores;
 
@@ -18,7 +18,7 @@ export const submitQuizResults = createAsyncThunk(
       throw new Error('Token not found. User is not authenticated.');
     }
 
-    console.log("user", user, "answers", answers, "total Score", totalScore, "categoryScores", categoryScores, "breakdonw", questionBreakdown);
+    console.log("title", title, "answers", answers, "total Score", totalScore, "categoryScores", categoryScores, "breakdonw", questionBreakdown);
 
     // Send the quiz data to the server with the token in the Authorization header
     const response = await fetch('/api/quiz/adversity', {
@@ -29,7 +29,7 @@ export const submitQuizResults = createAsyncThunk(
         'Authorization': `Bearer ${token}` // Send the token in the Authorization header
       },
       body: JSON.stringify({
-        user,
+        title,
         answers,
         totalScore,
         categoryScores,
@@ -48,15 +48,15 @@ export const submitQuizResults = createAsyncThunk(
 const quizSlice = createSlice({
   name: 'quiz',
   initialState: {
-    user: { name: '', email: '' },
+    title: "",
     answers: [],
     totalScore: null,
     categoryScores: { categoryScores: {}, questionBreakdown: [] }, // Include both category scores and question breakdown
     status: 'idle',
   },
   reducers: {
-    setUser: (state, action) => {
-      state.user = action.payload;
+    setTitle: (state, action) => {
+      state.title = action.payload;
     },
     setAnswers: (state, action) => {
       state.answers = action.payload;
@@ -82,5 +82,5 @@ const quizSlice = createSlice({
   },
 });
 
-export const { setUser, setAnswers, setTotalScore, setCategoryScores } = quizSlice.actions;
+export const {setTitle , setAnswers, setTotalScore, setCategoryScores } = quizSlice.actions;
 export default quizSlice.reducer;

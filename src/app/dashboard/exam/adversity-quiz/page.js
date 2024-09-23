@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { adversityResponseProfile } from "@/data/adversityResponseProfile";
 import { useDispatch } from 'react-redux';
-import { setAnswers, setTotalScore, setUser, setCategoryScores, submitQuizResults } from '@/store/slice/quizSlice';
+import { setAnswers, setTotalScore,  setCategoryScores, submitQuizResults, setTitle } from '@/store/slice/quizSlice';
 import { useRouter } from 'next/navigation';
 
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
@@ -10,8 +10,7 @@ const Quiz = () => {
   const [language, setLanguage] = useState("en");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setLocalAnswers] = useState(Array(adversityResponseProfile.length).fill(-1));
-  const [name, setName] = useState('samad');
-  const [email, setEmail] = useState('samad@gmail.com');
+
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -58,19 +57,20 @@ const Quiz = () => {
     return { categoryScores, questionBreakdown };
   };
 
-  const submitQuiz = () => {
+  const submitQuiz = async () => {
     const totalScore = answers.reduce((sum, score) => sum + score, 0) * 2;
     const { categoryScores, questionBreakdown } = calculateCategoryScores(answers); // Calculate category-wise scores and breakdown
 
     // Dispatch actions to store data in Redux
     dispatch(setAnswers(answers));
     dispatch(setTotalScore(totalScore));
+    dispatch(setTitle("Adversity Response Profile Test"))
     dispatch(setCategoryScores({ categoryScores, questionBreakdown })); // Dispatch category scores and breakdown to Redux
-    dispatch(setUser({ name, email }));
-    dispatch(submitQuizResults()); // Dispatch async thunk to submit the results
 
+  const resData = await dispatch(submitQuizResults()); // Dispatch async thunk to submit the results
+    const resultId =  resData.payload.quizResult._id
     // Redirect to result page
-    router.push('/dashboard/exam/adversity-quiz/result');
+    router.push(`/dashboard/result/${resultId}`);
   };
 
   return (

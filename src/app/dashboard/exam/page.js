@@ -22,28 +22,28 @@ const quizzes = [
   {
     id: 'riasec-test',
     imageSrc: '/images/ongoing/img3.jpg',
-    title: 'Quiz 3',
+    title: 'Riasec Quiz',
     description: 'Description of Quiz 3',
   },
 
   {
-    id: '4',
+    id: 'psi-test',
     imageSrc: '/images/ongoing/img4.jpg',
-    title: 'Quiz 4',
+    title: 'Psi Test',
     description: 'Description of Quiz 4',
   },
 
   {
-    id: '5',
+    id: 'learning-style-test',
     imageSrc: '/images/ongoing/img1.jpg',
-    title: 'Quiz 5',
+    title: 'earning Style Quiz',
     description: 'Description of Quiz 5',
   },
 
   {
-    id: '6',
+    id: 'social-style-test',
     imageSrc: '/images/ongoing/img1.jpg',
-    title: 'Quiz 6',
+    title: 'Social Style Quiz',
     description: 'Description of Quiz 6',
   },
 ];
@@ -51,25 +51,32 @@ const quizzes = [
 const QuizPage = () => {
   const [selectedQuiz, setSelectedQuiz] = useState(null);
 
-  const [isLoading , setIsLoading] = useState(true);
+  const [isLoading , setIsLoading] = useState(false);
 
     
   const router = useRouter();
   const handleQuizClick = (quizId) => {
-    setSelectedQuiz(quizId);
+    // setSelectedQuiz(quizId);
+    const token = localStorage.getItem("token");
+      if (!token) {
+        router.push("/auth/login"); // Redirect to home if token exists
+      }else{
+        router.push(`/dashboard/exam/${quizId}`)
+
+      }
   };
 
   // Check if the user is already logged in, if so, redirect to home page
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/auth/login"); // Redirect to home if token exists
-    }
-        setIsLoading(false)
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     router.push("/auth/login"); // Redirect to home if token exists
+  //   }
+  //       setIsLoading(false)
+  // }, []);
 
 
-  if(isLoading) return <Loader/>
+  // if(isLoading) return <Loader/>
   return (
     <div className="mt-[90px] bg-gray-100 min-h-screen">
           {/* Title and Description */}
@@ -112,13 +119,12 @@ const QuizPage = () => {
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2 text-gray-800">{quiz.title}</h2>
               <p className="text-gray-600 mb-4">{quiz.description}</p>
-              <Link 
-              href={`/dashboard/exam/${quiz.id}`}
+              <span 
                 className="w-full py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                 onClick={() => handleQuizClick(quiz.id)}
               >
                 Start Quiz
-              </Link>
+              </span>
             </div>
           </div>
         ))}

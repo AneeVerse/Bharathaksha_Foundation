@@ -14,12 +14,12 @@ const Page = () => {
   const router = useRouter();
     // Check if the user is already logged in, if so, redirect to home page
     useEffect(() => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        router.push("/auth/login"); // Redirect to home if token exists
-      }else{
+      // const token = localStorage.getItem("token");
+      // if (!token) {
+      //   router.push("/auth/login"); // Redirect to home if token exists
+      // }else{
         router.push("/dashboard/exam")
-      }
+      // }
     }, []);
 
   return (

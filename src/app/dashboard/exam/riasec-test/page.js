@@ -1,95 +1,99 @@
 "use client";
+
 import React, { useState } from 'react';
-import { riasecQuizData } from '@/data/riasecQuizData';
+import { riasecQuizData } from '@/data/riasecQuizData'; // Assuming the quizData with options and labels in multiple languages is imported
 
-const RIASECQuiz = () => {
+const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(Array(riasecQuizData.length).fill(null));
-  const [showResults, setShowResults] = useState(false); // State to control when to show results
-  const [results, setResults] = useState({ R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 }); // State to store the results
+  const [language, setLanguage] = useState("en"); // Default language set to English
+  const [scores, setScores] = useState({
+    R: 0,
+    I: 0,
+    A: 0,
+    S: 0,
+    E: 0,
+    C: 0,
+  });
 
-  const handleAnswerChange = (value) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestion] = value;
-    setAnswers(updatedAnswers);
-  };
+  const handleAnswer = (answer) => {
+    if (answer === "yes") {
+      const updatedScores = { ...scores };
+      const category = riasecQuizData[currentQuestion].category;
+      updatedScores[category] += 1; // Increment the category score
+      setScores(updatedScores);
+    }
 
-  const nextQuestion = () => {
     if (currentQuestion < riasecQuizData.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      submitQuiz(); // Calculate and show results
+      submitQuiz();
     }
   };
 
   const submitQuiz = () => {
-    const score = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
-    const categories = ['R', 'I', 'A', 'S', 'E', 'C'];
-    answers.forEach((answer, index) => {
-      if (answer !== null) {
-        score[categories[answer]] += 1;
-      }
-    });
-    setResults(score);
-    setShowResults(true); // Set the state to show results
+    console.log("Final Scores:", scores);
+    alert(JSON.stringify(scores, null, 2)); // You can replace this with a proper result display
   };
 
+  // const restartQuiz = () => {
+  //   setCurrentQuestion(0);
+  //   setScores({ R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 });
+  // };
+
   return (
-    <div className="max-w-xl mx-auto mt-[130px] p-8 bg-white rounded-lg shadow-lg">
-      {!showResults ? (
-        <>
-          <h2 className="text-2xl font-bold mb-4 text-center">
-            Question {currentQuestion + 1} of {riasecQuizData.length}
-          </h2>
-          <div className="mb-6 text-left">
-            <p className="text-lg font-semibold mb-2">
-              {riasecQuizData[currentQuestion].question}
-            </p>
-          </div>
+    <div className="mt-[90px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+      {/* Language Selection Dropdown */}
+      <div className="mb-6 flex justify-end gap-2 items-center">
+        <label htmlFor="language" className="text-md font-semibold text-gray-700">
+          Select Language:
+        </label>
+        <select
+          id="language"
+          value={language}
+          onChange={(e) => setLanguage(e.target.value)}
+          className="bg-transparent border border-gray-300 rounded pl-3 pr-8 py-2 text-sm"
+        >
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="mr">Marathi</option>
+        </select>
+      </div>
 
-          <div className="flex justify-center space-x-4 mb-6">
-            {Array.from({ length: 6 }, (_, i) => i).map(value => (
-              <button
-                key={value}
-                onClick={() => handleAnswerChange(value)}
-                className={`w-12 h-12 flex items-center justify-center rounded-full text-white font-semibold transition-all duration-200 ${
-                  answers[currentQuestion] === value
-                    ? 'bg-green-600 shadow-lg transform scale-105'
-                    : 'bg-gray-400 hover:bg-green-500'
-                }`}
-              >
-                {value}
-              </button>
-            ))}
-          </div>
+      {/* Question Display */}
+      <h2 className="text-xl font-semibold mb-6">Question {currentQuestion + 1} of {riasecQuizData.length}</h2>
+      <p className="text-lg mb-6">
+        {riasecQuizData[currentQuestion].question[language]}
+      </p>
 
-          <div className="flex justify-between">
-            <button
-              onClick={() => setCurrentQuestion(currentQuestion - 1)}
-              disabled={currentQuestion === 0}
-              className="px-6 py-3 rounded-md font-semibold text-white bg-gray-500 hover:bg-gray-600"
-            >
-              Previous
-            </button>
+      {/* Yes/No Buttons */}
+      <div className="flex justify-center gap-4">
+        <button
+          onClick={() => handleAnswer("yes")}
+          className="px-5 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600"
+        >
+          Yes
+        </button>
+        <button
+          onClick={() => handleAnswer("no")}
+          className="px-5 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600"
+        >
+          No
+        </button>
+      </div>
 
-            <button
-              onClick={nextQuestion}
-              className="px-6 py-3 rounded-md font-semibold text-white bg-green-500 hover:bg-green-600 transition-all duration-200"
-            >
-              {currentQuestion < riasecQuizData.length - 1 ? 'Next' : 'Submit'}
-            </button>
-          </div>
-        </>
-      ) : (
-        <div className="results mt-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Your RIASEC Results</h2>
-          {Object.keys(results).map(key => (
-            <p key={key}>{`${key}: ${results[key]}`}</p>
-          ))}
+      {/* Show restart button after quiz completion */}
+      {/* {currentQuestion === riasecQuizData.length - 1 && (
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={restartQuiz}
+            className="px-5 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600"
+          >
+            Restart Quiz
+          </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
 
-export default RIASECQuiz;
+export default Quiz;

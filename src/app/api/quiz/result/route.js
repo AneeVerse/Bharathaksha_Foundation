@@ -3,12 +3,12 @@ import QuizResultModel from '../../../../lib/models/Quiz';
 import jwt from 'jsonwebtoken';
 import { headers } from 'next/headers';
 
-export async function POST(req) {
+export async function GET(req) {
     try {
-        const { title, answers, totalScore, categoryScores, questionBreakdown } = await req.json();
+        // const { title, answers, totalScore, categoryScores, questionBreakdown } = await req.json();
 
         // Log the incoming data for debugging
-        console.log("Received data:", { title, answers, totalScore, categoryScores, questionBreakdown });
+        // console.log("Received data:", { title, answers, totalScore, categoryScores, questionBreakdown });
 
         // Get token from headers
         const reqHeader = headers();
@@ -36,37 +36,22 @@ export async function POST(req) {
         // Log token details for debugging
         console.log("Decoded token:", decodedToken);
 
-        // const date = new Date();
-        // console.log("createdData", date)
-
         // Create and save the quiz result
-        const quizResult = new QuizResultModel({
-            title: title,
-            userId: decodedToken.userId,
-            user: {
-                name: decodedToken.name,
-                email: decodedToken.email
-            },
-            answers,
-            totalScore,
-            categoryScores, // Use the object directly
-            questionBreakdown // Ensure this is an array of objects
-        });
+        const data = await QuizResultModel.find({userId : decodedToken.userId});
 
-        await quizResult.save();
 
         // Log saved quiz result for debugging
-        // console.log("Quiz result saved:", quizResult);
+        console.log("Quiz result fetched:", data);
 
         return new Response(
-            JSON.stringify({ message: "Quiz results submitted successfully", quizResult }),
+            JSON.stringify({ message: "Quiz results fetch successfully", data }),
             { status: 201 } // Created
         );
 
     } catch (error) {
         console.log("Error", error.message);
         return new Response(
-            JSON.stringify({ message: "Error submitting quiz results", error: error.message }),
+            JSON.stringify({ message: "Error fetching quiz results", error: error.message }),
             { status: 500 } // Internal Server Error
         );
     }

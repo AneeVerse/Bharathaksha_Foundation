@@ -9,17 +9,18 @@ const quizSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true }
   },
+  title:{
+    type: String, 
+    required: true
+  },
   answers: {
     type: [Number], // Array of numbers
-    required: true
   },
   totalScore: {
     type: Number,
-    required: true
   },
   categoryScores: {
     type: Object, // Use plain object instead of Map
-    required: true
   },
   questionBreakdown: {
     type: [{
@@ -27,9 +28,8 @@ const quizSchema = new mongoose.Schema({
       category: String,
       score: Number
     }], // Array of objects
-    required: true
   }
-});
+},{timestamps: true});
 
 const QuizModel = mongoose.models.Quiz || mongoose.model('Quiz', quizSchema);
 

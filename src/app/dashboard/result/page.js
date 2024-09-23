@@ -1,71 +1,82 @@
 "use client"
 
-import ExponentialGraph from "@/components/result/ExponentialGraph";
+import Loader from "@/components/layout/Loader";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
+const Page = () => {
+  const router = useRouter();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-// pages/test-results.js
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem("token");
 
-const TestResults = () => {
-  // Sample data for the graph
-  const testData = [
-    { question: 'Q1', score: 2 },
-    { question: 'Q2', score: 3 },
-    { question: 'Q3', score: 1 },
-    { question: 'Q4', score: 2 },
-    { question: 'Q5', score: 2 },
-    { question: 'Q6', score: 3 },
-    { question: 'Q1', score: 2 },
-    { question: 'Q2', score: 8 },
-    { question: 'Q3', score: 3 },
-    { question: 'Q4', score: 5 },
-    { question: 'Q5', score: 2 },
-    { question: 'Q6', score: 3 },
-    { question: 'Q1', score: 7 },
-    { question: 'Q2', score: 3 },
-    { question: 'Q3', score: 2 },
-    { question: 'Q4', score: 2 },
-    { question: 'Q5', score: 2 },
-    { question: 'Q6', score: 11 },
-    // Add more data as needed
-  ];
+      if (!token) {
+        return router.push("/auth/login");
+      }
+
+      const response = await fetch("/api/quiz/result", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch result");
+      }
+
+      const {data} = await response.json();
+      console.log("resData", data);
+      setData(data);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [router]);
+
+  if (isLoading) return <Loader />;
 
   return (
-    <div className="min-h-screen mt-[90px] bg-gray-100">
-      <h1 className="text-3xl text-center text-gray-800 font-bold mt-6">
+    <div className="min-h-screen mt-[90px] bg-gray-100 p-6">
+      <h1 className="text-3xl text-center text-gray-800 font-bold mb-8">
         Test Results
       </h1>
-      <ExponentialGraph data={testData} />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data && data.map((quiz, index) => (
+          <div key={index} className="bg-white shadow-lg rounded-lg p-6">
+            <h2 className="text-xl font-semibold mb-4">{quiz.title}</h2>
+            
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-medium">Score:</span>
+              <span className="text-lg font-bold text-green-600">{quiz.totalScore}</span>
+            </div>
+
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-medium">Date:</span>
+              <span className="text-gray-600">{new Date(quiz.updatedAt).toLocaleDateString()}</span>
+            </div>
+
+            <div className="flex justify-between items-center">
+              <span className="font-medium">Category:</span>
+              <span className="text-gray-600">{quiz.category}</span>
+            </div>
+
+            <button
+              onClick={() => router.push(`/dashboard/result/${quiz._id}`)}
+              className="mt-4 w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600"
+            >
+              View Details
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default TestResults;
-
-
-// import ExponentialGraph from "@/components/result/ExponentialGraph";
-
-// pages/test-results.js
-
-
-// const TestResults = () => {
-//   // Sample data, adjust values for x (questions) and y (scores)
-//   const testData = [
-//     { question: 1, score: 40 },
-//     { question: 2, score: -20 },
-//     { question: 3, score: 50 },
-//     { question: 4, score: 80 },
-//     { question: 5, score: -60 },
-//   ];
-
-//   return (
-//     <div className="min-h-screen bg-gray-100">
-//       <h1 className="text-3xl text-center text-gray-800 font-bold mt-6">
-//         Test Results
-//       </h1>
-//       <ExponentialGraph data={testData} />
-//     </div>
-//   );
-// };
-
-// export default TestResults;
-
+export default Page;
