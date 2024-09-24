@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { rsiQuizData } from '@/data/rsiQuizData'; // Assuming the quizData with options and labels in multiple languages is imported
+import { useRouter } from 'next/navigation';
 
 const Quiz = () => {
+  const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(rsiQuizData.length).fill([-1, -1])); // Initialize with -1 meaning no selection
   const [language, setLanguage] = useState("en"); // Default language set to English
@@ -28,7 +30,32 @@ const Quiz = () => {
     }
   };
 
-  const submitQuiz = () => {
+  // const submitQuiz = () => {
+  //   const counts = {
+  //     A: 0,
+  //     B: 0,
+  //     C: 0,
+  //     D: 0,
+  //     E: 0,
+  //     F: 0,
+  //     G: 0,
+  //     H: 0,
+  //     I: 0,
+  //   };
+
+  //   // Count the occurrences of each option
+  //   rsiQuizData.forEach((question, index) => {
+  //     const selectedOption1 = question.options[0].id;
+  //     const selectedOption2 = question.options[1].id;
+  //     counts[selectedOption1] += answers[index][0]; // Add points for statement 1
+  //     counts[selectedOption2] += answers[index][1]; // Add points for statement 2
+  //   });
+
+  //   console.log("Final Scores:", counts);
+  //   alert(JSON.stringify(counts, null, 2)); // Show result in an alert (you can replace this with a proper result display)
+  // };
+
+  const submitQuiz = async () => {
     const counts = {
       A: 0,
       B: 0,
@@ -40,18 +67,46 @@ const Quiz = () => {
       H: 0,
       I: 0,
     };
-
-    // Count the occurrences of each option
+  
+    // Count the occurrences of each option based on the selected answers
     rsiQuizData.forEach((question, index) => {
       const selectedOption1 = question.options[0].id;
       const selectedOption2 = question.options[1].id;
       counts[selectedOption1] += answers[index][0]; // Add points for statement 1
       counts[selectedOption2] += answers[index][1]; // Add points for statement 2
     });
-
-    console.log("Final Scores:", counts);
-    alert(JSON.stringify(counts, null, 2)); // Show result in an alert (you can replace this with a proper result display)
+  
+    const quizResult = {
+      title: "RSI Test",
+      type: "RsiTest",
+      // answers,
+      totalScore: Object.values(counts).reduce((acc, val) => acc + val, 0), // Sum up all scores for totalScore
+      counts // Save the individual category counts (A, B, C, etc.)
+    };
+  
+    try {
+      const res = await fetch('/api/quiz/saveResult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(quizResult),
+      });
+  
+      if (res.ok) {
+        const resultData = await res.json();
+        router.push(`/dashboard/result/${resultData.quizResult._id}`);
+      } else {
+        console.error('Failed to save quiz result.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+    }
   };
+  
+  
+
 
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
 

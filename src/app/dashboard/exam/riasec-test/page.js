@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { riasecQuizData } from '@/data/riasecQuizData'; // Assuming the quizData with options and labels in multiple languages is imported
+import { useRouter } from 'next/navigation';
 
 const Quiz = () => {
+  const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [language, setLanguage] = useState("en"); // Default language set to English
   const [scores, setScores] = useState({
@@ -30,10 +32,44 @@ const Quiz = () => {
     }
   };
 
-  const submitQuiz = () => {
-    console.log("Final Scores:", scores);
-    alert(JSON.stringify(scores, null, 2)); // You can replace this with a proper result display
+  // const submitQuiz = () => {
+  //   console.log("Final Scores:", scores);
+  //   alert(JSON.stringify(scores, null, 2)); // You can replace this with a proper result display
+  // };
+
+  const submitQuiz = async () => {
+    const quizResult = {
+      title: "RIASEC Career Test",
+      type: "RIASEC",
+      // answers, // Assuming answers store yes/no
+      totalScore: Object.values(scores).reduce((acc, val) => acc + val, 0), // Sum of scores
+      scores // RIASEC scores for each category (R, I, A, S, E, C)
+    };
+  
+    try {
+      const res = await fetch('/api/quiz/saveResult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(quizResult),
+      });
+  
+      if (res.ok) {
+        const resultData = await res.json();
+        router.push(`/dashboard/result/${resultData.quizResult._id}`);
+      } else {
+        console.error('Failed to save quiz result.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+    }
   };
+  
+  
+
+
 
   // const restartQuiz = () => {
   //   setCurrentQuestion(0);

@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { psiQuizData } from '@/data/psiQuizData'; // Assuming the quizData with options and labels in multiple languages is imported
+import { useRouter } from 'next/navigation';
 
 const PersonalStyleInventoryQuiz = () => {
+  const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(psiQuizData.length).fill([-1, -1])); // Initialize with -1 meaning no selection
   const [language, setLanguage] = useState("en"); // Default language set to English
@@ -28,7 +30,43 @@ const PersonalStyleInventoryQuiz = () => {
     }
   };
 
-  const submitQuiz = () => {
+  // const submitQuiz = () => {
+  //   const counts = {
+  //     I: 0,
+  //     E: 0,
+  //     N: 0,
+  //     S: 0,
+  //     T: 0,
+  //     F: 0,
+  //     P: 0,
+  //     J: 0,
+  //   };
+
+  //   // Count the occurrences of each option based on the selected answers
+  //   psiQuizData.forEach((question, index) => {
+  //     const selectedOption1 = question.options[0].category;
+  //     const selectedOption2 = question.options[1].category;
+  //     counts[selectedOption1] += answers[index][0]; // Add points for statement 1
+  //     counts[selectedOption2] += answers[index][1]; // Add points for statement 2
+  //   });
+
+  //   // Determine the dominant categories for the result
+  //   const ie = counts.I > counts.E ? "I" : "E";
+  //   const ns = counts.N > counts.S ? "N" : "S";
+  //   const tf = counts.T > counts.F ? "T" : "F";
+  //   const pj = counts.P > counts.J ? "P" : "J";
+    
+  //   // Final result in the form of a 4-letter code
+  //   const result = `${ie}${ns}${tf}${pj}`;
+
+  //   console.log("Final Scores:", counts);
+  //   console.log("Result:", result);
+
+  //   alert(`Your Personality Type is: ${result} ${JSON.stringify(counts)}`); // Show result in an alert (can replace with proper UI display)
+  // };
+
+
+  const submitQuiz = async () => {
     const counts = {
       I: 0,
       E: 0,
@@ -39,30 +77,83 @@ const PersonalStyleInventoryQuiz = () => {
       P: 0,
       J: 0,
     };
-
-    // Count the occurrences of each option based on the selected answers
+  
+    // Calculate the score for each category based on the answers
     psiQuizData.forEach((question, index) => {
-      const selectedOption1 = question.options[0].category;
-      const selectedOption2 = question.options[1].category;
-      counts[selectedOption1] += answers[index][0]; // Add points for statement 1
-      counts[selectedOption2] += answers[index][1]; // Add points for statement 2
+      const answer1 = answers[index][0]; // Value for the first statement
+      const answer2 = answers[index][1]; // Value for the second statement
+  
+      const category1 = question.options[0].category; // First category (I, N, T, P)
+      const category2 = question.options[1].category; // Second category (E, S, F, J)
+  
+      counts[category1] += answer1;
+      counts[category2] += answer2;
     });
-
-    // Determine the dominant categories for the result
+  
+    // Determine the dominant category for each pair
     const ie = counts.I > counts.E ? "I" : "E";
     const ns = counts.N > counts.S ? "N" : "S";
     const tf = counts.T > counts.F ? "T" : "F";
     const pj = counts.P > counts.J ? "P" : "J";
-    
-    // Final result in the form of a 4-letter code
-    const result = `${ie}${ns}${tf}${pj}`;
-
-    console.log("Final Scores:", counts);
-    console.log("Result:", result);
-
-    alert(`Your Personality Type is: ${result} ${JSON.stringify(counts)}`); // Show result in an alert (can replace with proper UI display)
+  
+    const result = `${ie}${ns}${tf}${pj}`; // Final personality type
+  
+    // Prepare the data to be sent to the server
+    const quizResult = {
+      title: "Psi Personality Test",
+      type: "PsiTest",
+      // answers: answers, // Raw answers as selected by the user
+      finalType: result, // The 4-letter personality type
+      categoryScores: counts, // Detailed scores for each category
+      totalScores: [
+        { I: counts.I }, 
+        { E: counts.E }, 
+        { N: counts.N }, 
+        { S: counts.S }, 
+        { T: counts.T }, 
+        { F: counts.F }, 
+        { P: counts.P }, 
+        { J: counts.J }
+      ] // Array of total scores
+    };
+  
+    try {
+      // Retrieve the JWT token from localStorage
+      const token = localStorage.getItem('token');
+      
+      // Make sure the token is available
+      if (!token) {
+        alert('Token not found. Please log in again.');
+        return;
+      }
+  
+      // Send the result data to the server
+      const res = await fetch('/api/quiz/saveResult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // Use the JWT token for authentication
+        },
+        body: JSON.stringify(quizResult),
+      });
+  
+      if (res.ok) {
+        const resultData = await res.json();
+        console.log('Quiz result saved successfully:', resultData);
+  
+        // Redirect to the result page (assuming it shows the saved result)
+      
+        router.push(`/dashboard/result/${resultData.quizResult._id}`);
+      } else {
+        console.error('Failed to save quiz result.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+    }
   };
-
+  
+  
+  
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
 
   return (

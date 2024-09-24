@@ -2,8 +2,10 @@
 
 import React, { useState } from "react";
 import { socialStylesQuiz } from "@/data/socialStyleQuiz"; // Assuming the data is imported
+import { useRouter } from "next/navigation";
 
 const SocialStylesQuiz = () => {
+  const router = useRouter();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [answers, setAnswers] = useState({}); // Track selected answers
@@ -42,11 +44,41 @@ const SocialStylesQuiz = () => {
     }
   };
 
-  const submitQuiz = () => {
-    alert(`Final Coordinates:\nX: ${coordinates.x}, Y: ${coordinates.y}`);
-    // Further processing can be done based on the coordinates
-  };
+  // const submitQuiz = () => {
+  //   alert(`Final Coordinates:\nX: ${coordinates.x}, Y: ${coordinates.y}`);
+  //   // Further processing can be done based on the coordinates
+  // };
 
+  const submitQuiz = async () => {
+    const quizResult = {
+      title: "Social Styles Quiz",
+      type: "SocialStyle",
+      // answers, // Assuming answers store selected options
+      coordinates // Save the final coordinates (e.g., {x: 2, y: -1})
+    };
+  
+    try {
+      const res = await fetch('/api/quiz/saveResult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(quizResult),
+      });
+  
+      if (res.ok) {
+        const resultData = await res.json();
+        router.push(`/dashboard/result/${resultData.quizResult._id}`);
+      } else {
+        console.error('Failed to save quiz result.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+    }
+  };
+  
+  
   // Disable next button until an option is selected for the current question
   const isNextDisabled = !answers[socialStylesQuiz[currentQuestion].id];
 

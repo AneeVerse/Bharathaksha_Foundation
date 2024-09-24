@@ -121,7 +121,7 @@ const QuizPage = () => {
               <p className="text-gray-600 mb-4">Language: Hindi, English, Marathi</p>
               {/* <p className="text-gray-600 mb-4">{quiz.description}</p> */}
               <div 
-                className="w-full text-md py-2 px-4 border border-green-600 text-green-600 rounded-md hover:text-white hover:bg-green-700 cursor-pointer text-center duration-300"
+                className="w-full font-semibold text-md py-2 px-4 border border-[#8ac240] text-[#8ac240] rounded-md hover:text-white hover:bg-[#8ac240] cursor-pointer text-center duration-300"
                 onClick={() => handleQuizClick(quiz.id)}
               >
                 Start Quiz

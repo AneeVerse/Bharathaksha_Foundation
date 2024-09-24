@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const submitQuizResults = createAsyncThunk(
   'quiz/submitQuizResults',
   async (quizData, { getState }) => {
-    let { title, answers, totalScore, categoryScores } = getState().quiz;
+    let { title, type, answers, totalScore, categoryScores } = getState().quiz;
     let questionBreakdown = categoryScores.questionBreakdown;
     categoryScores = categoryScores.categoryScores;
 
@@ -30,6 +30,7 @@ export const submitQuizResults = createAsyncThunk(
       },
       body: JSON.stringify({
         title,
+        type,
         answers,
         totalScore,
         categoryScores,
@@ -49,6 +50,7 @@ const quizSlice = createSlice({
   name: 'quiz',
   initialState: {
     title: "",
+    type: "",
     answers: [],
     totalScore: null,
     categoryScores: { categoryScores: {}, questionBreakdown: [] }, // Include both category scores and question breakdown
@@ -57,6 +59,9 @@ const quizSlice = createSlice({
   reducers: {
     setTitle: (state, action) => {
       state.title = action.payload;
+    },
+    setType: (state, action) => {
+      state.type = action.payload;
     },
     setAnswers: (state, action) => {
       state.answers = action.payload;
@@ -82,5 +87,5 @@ const quizSlice = createSlice({
   },
 });
 
-export const {setTitle , setAnswers, setTotalScore, setCategoryScores } = quizSlice.actions;
+export const {setTitle , setType,  setAnswers, setTotalScore, setCategoryScores } = quizSlice.actions;
 export default quizSlice.reducer;

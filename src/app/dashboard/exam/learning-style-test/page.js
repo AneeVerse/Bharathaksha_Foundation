@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import { learningStyleQuiz } from "@/data/learningStyleQuiz"; // Assuming the quiz data is imported from your file
+import { useRouter } from "next/navigation";
 
 const VARKQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const router = useRouter();
   const [answers, setAnswers] = useState({});
   const [varkCounts, setVarkCounts] = useState({
     V: 0,
@@ -58,11 +60,71 @@ const VARKQuiz = () => {
     }
   };
 
-  const submitQuiz = () => {
-    alert(
-      `Results:\nV: ${varkCounts.V}\nA: ${varkCounts.A}\nR: ${varkCounts.R}\nK: ${varkCounts.K}`
-    );
+ // Submit Quiz and send data to the backend
+//  const submitQuiz = async () => {
+//   const totalScore = varkCounts.V + varkCounts.A + varkCounts.R + varkCounts.K;
+  
+//   const quizResult = {
+//     title: "VARK Learning Style Quiz",
+//     type: "LearningStyle",
+//     answers: answers,
+//     totalScore,
+//     varkCounts
+//   };
+
+//   try {
+//     const res = await fetch('/api/quiz/saveResult', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${localStorage.getItem('token')}`,
+//       },
+//       body: JSON.stringify(quizResult),
+//     });
+
+//     if (res.ok) {
+//       const resultData = await res.json();
+//       router.push(`/dashboard/result/${resultData.quizResult._id}`);
+//     } else {
+//       console.error('Failed to save quiz result.');
+//     }
+//   } catch (error) {
+//     console.error('Error submitting quiz:', error);
+//   }
+// };
+
+const submitQuiz = async () => {
+  const totalScore = varkCounts.V + varkCounts.A + varkCounts.R + varkCounts.K;
+
+  const quizResult = {
+    title: "VARK Learning Style Quiz",
+    type: "LearningStyle",
+    // answers,
+    totalScore,
+    varkCounts
   };
+
+  try {
+    const res = await fetch('/api/quiz/saveResult', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify(quizResult),
+    });
+
+    if (res.ok) {
+      const resultData = await res.json();
+      router.push(`/dashboard/result/${resultData.quizResult._id}`);
+    } else {
+      console.error('Failed to save quiz result.');
+    }
+  } catch (error) {
+    console.error('Error submitting quiz:', error);
+  }
+};
+
 
   // Check if at least one option is selected for the current question
   const isNextDisabled =

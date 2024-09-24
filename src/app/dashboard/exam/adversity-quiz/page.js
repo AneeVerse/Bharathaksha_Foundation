@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { adversityResponseProfile } from "@/data/adversityResponseProfile";
 import { useDispatch } from 'react-redux';
-import { setAnswers, setTotalScore,  setCategoryScores, submitQuizResults, setTitle } from '@/store/slice/quizSlice';
+import { setAnswers, setTotalScore,  setCategoryScores, submitQuizResults, setTitle, setType } from '@/store/slice/quizSlice';
 import { useRouter } from 'next/navigation';
 
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
@@ -57,21 +57,59 @@ const Quiz = () => {
     return { categoryScores, questionBreakdown };
   };
 
+  // const submitQuiz = async () => {
+  //   const totalScore = answers.reduce((sum, score) => sum + score, 0) * 2;
+  //   const { categoryScores, questionBreakdown } = calculateCategoryScores(answers); // Calculate category-wise scores and breakdown
+
+  //   // Dispatch actions to store data in Redux
+  //   dispatch(setAnswers(answers));
+  //   dispatch(setTotalScore(totalScore));
+  //   dispatch(setTitle("Adversity Response Profile Test"))
+  //   dispatch(setType("Adversity"))
+  //   dispatch(setCategoryScores({ categoryScores, questionBreakdown })); // Dispatch category scores and breakdown to Redux
+
+  // const resData = await dispatch(submitQuizResults()); // Dispatch async thunk to submit the results
+  //   const resultId =  resData.payload.quizResult._id
+  //   // Redirect to result page
+  //   router.push(`/dashboard/result/${resultId}`);
+  // };
+
   const submitQuiz = async () => {
     const totalScore = answers.reduce((sum, score) => sum + score, 0) * 2;
-    const { categoryScores, questionBreakdown } = calculateCategoryScores(answers); // Calculate category-wise scores and breakdown
-
-    // Dispatch actions to store data in Redux
-    dispatch(setAnswers(answers));
-    dispatch(setTotalScore(totalScore));
-    dispatch(setTitle("Adversity Response Profile Test"))
-    dispatch(setCategoryScores({ categoryScores, questionBreakdown })); // Dispatch category scores and breakdown to Redux
-
-  const resData = await dispatch(submitQuizResults()); // Dispatch async thunk to submit the results
-    const resultId =  resData.payload.quizResult._id
-    // Redirect to result page
-    router.push(`/dashboard/result/${resultId}`);
+  
+    const { categoryScores, questionBreakdown } = calculateCategoryScores(answers); // Logic to calculate category scores
+  
+    const quizResult = {
+      title: "Adversity Response Profile Test",
+      type: "Adversity",
+      // answers,
+      totalScore,
+      categoryScores,
+      questionBreakdown
+    };
+  
+    try {
+      const res = await fetch('/api/quiz/saveResult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(quizResult),
+      });
+  
+      if (res.ok) {
+        const resultData = await res.json();
+        router.push(`/dashboard/result/${resultData.quizResult._id}`);
+      } else {
+        console.error('Failed to save quiz result.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+    }
   };
+  
+  
 
   return (
     <div className="max-w-4xl mx-3  sm:mx-4 md:mx-10 lg:mx-auto mt-36 p-3 sm:p-8 bg-white rounded-lg mb-12 shadow-lg border border-gray-200">
@@ -115,7 +153,7 @@ const Quiz = () => {
 
       {/* Answer Options */}
       <div className="relative mb-8">
-        <div className="flex justify-between text-[11px] sm:text-sm mb-3 text-gray-500">
+        <div className="flex justify-between text-[11px] max-w-sm mx-auto sm:text-sm mb-3 text-gray-500">
           <span>{adversityResponseProfile[currentQuestion].minLabel[language]}</span>
           <span>{adversityResponseProfile[currentQuestion].maxLabel[language]}</span>
         </div>
