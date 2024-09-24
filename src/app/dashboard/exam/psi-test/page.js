@@ -66,7 +66,7 @@ const PersonalStyleInventoryQuiz = () => {
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
 
   return (
-    <div className="mt-[90px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="mt-[120px] mb-[30px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       {/* Introduction to the Personal Style Inventory */}
       <div className="mb-6">
         <h1 className="text-2xl font-semibold mb-4 text-center">Personal Style Inventory</h1>
@@ -89,9 +89,9 @@ const PersonalStyleInventoryQuiz = () => {
           <li>4 = Feel much more positive about this item.</li>
           <li>5 = You strongly prefer it or do not prefer the other member of the pair.</li>
         </ul>
-        <p className="mb-4 text-sm text-gray-700">
+        {/* <p className="mb-4 text-sm text-gray-700">
           The scores for each &quot;a & b&quot; pair MUST ADD UP TO 5 (i.e., 0+5, 1+4, 2+3). Do not use fractions such as 2½.
-        </p>
+        </p> */}
       </div>
 
       {/* Language Selection Dropdown */}
@@ -109,12 +109,12 @@ const PersonalStyleInventoryQuiz = () => {
         </select>
       </div>
 
-      <h2 className="text-xl font-semibold mb-6">Question {currentQuestion + 1} of {psiQuizData.length}</h2>
+      <h2 className="text-xl text-center font-semibold mb-6">Question {currentQuestion + 1} of {psiQuizData.length}</h2>
 
       {/* Display the statements for the current question */}
       <div className="mb-6">
         {/* Statement 1 */}
-        <p className="text-lg mb-2 font-medium">{psiQuizData[currentQuestion].options[0].label[language]}</p>
+        <p className="text-lg text-center mb-2 font-medium">{psiQuizData[currentQuestion].options[0].label[language]}</p>
         <div className="flex justify-center gap-2 sm:gap-4 mb-4">
           {[0, 1, 2, 3, 4, 5].map((value) => (
             <button
@@ -132,7 +132,7 @@ const PersonalStyleInventoryQuiz = () => {
         </div>
 
         {/* Statement 2 */}
-        <p className="text-lg mb-2 font-medium">{psiQuizData[currentQuestion].options[1].label[language]}</p>
+        <p className="text-lg mb-2 text-center font-medium">{psiQuizData[currentQuestion].options[1].label[language]}</p>
         <div className="flex justify-center gap-2 sm:gap-4 mb-4">
           {[0, 1, 2, 3, 4, 5].map((value) => (
             <button

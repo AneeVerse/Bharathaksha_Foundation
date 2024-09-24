@@ -56,7 +56,7 @@ const Quiz = () => {
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
 
   return (
-    <div className="mt-[90px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="mt-[120px] mb-[30px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
       {/* Language Selection Dropdown */}
       <div className="mb-6 flex justify-end gap-2 items-center">
         <label htmlFor="language" className="text-md font-semibold text-gray-700">
@@ -74,12 +74,12 @@ const Quiz = () => {
         </select>
       </div>
 
-      <h2 className="text-xl font-semibold mb-6">Question {currentQuestion + 1} of {rsiQuizData.length}</h2>
+      <h2 className="text-xl text-center font-semibold mb-6">Question {currentQuestion + 1} of {rsiQuizData.length}</h2>
 
       {/* Display the statements for the current question */}
       <div className="mb-6">
         {/* Statement 1 */}
-        <p className="text-lg mb-2 font-medium">
+        <p className="text-lg text-center mb-2 font-medium">
           {rsiQuizData[currentQuestion].options[0].label[language]}
         </p>
         <div className="flex justify-center gap-2 sm:gap-4 mb-4">
@@ -99,7 +99,7 @@ const Quiz = () => {
         </div>
 
         {/* Statement 2 */}
-        <p className="text-lg mb-2 font-medium">
+        <p className="text-lg text-center mb-2 font-medium">
           {rsiQuizData[currentQuestion].options[1].label[language]}
         </p>
         <div className="flex justify-center gap-2 sm:gap-4 mb-4">

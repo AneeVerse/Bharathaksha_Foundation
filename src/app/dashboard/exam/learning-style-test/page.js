@@ -70,7 +70,7 @@ const VARKQuiz = () => {
     answers[learningStyleQuiz[currentQuestion].id].length === 0;
 
   return (
-    <div className="max-w-3xl mt-[90px] mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="max-w-3xl mt-[120px] mb-[30px] mx-auto p-6 bg-white rounded-lg shadow">
       {/* Language Selection */}
       <div className="mb-6 flex justify-end gap-2 items-center">
         <label htmlFor="language" className="text-md font-semibold text-gray-700">

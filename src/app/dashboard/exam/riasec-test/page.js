@@ -41,58 +41,49 @@ const Quiz = () => {
   // };
 
   return (
-    <div className="mt-[90px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      {/* Language Selection Dropdown */}
-      <div className="mb-6 flex justify-end gap-2 items-center">
-        <label htmlFor="language" className="text-md font-semibold text-gray-700">
-          Select Language:
-        </label>
-        <select
-          id="language"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-          className="bg-transparent border border-gray-300 rounded pl-3 pr-8 py-2 text-sm"
-        >
-          <option value="en">English</option>
-          <option value="hi">Hindi</option>
-          <option value="mr">Marathi</option>
-        </select>
-      </div>
+<div className="mt-[120px] mb-[30px] max-w-3xl mx-auto p-6 bg-white rounded-lg shadow">
+  {/* Language Selection Dropdown */}
+  <div className="mb-6 flex justify-end gap-2 items-center">
+    <label htmlFor="language" className="text-md font-semibold text-gray-700">
+      Select Language:
+    </label>
+    <select
+      id="language"
+      value={language}
+      onChange={(e) => setLanguage(e.target.value)}
+      className="bg-gray-100 border border-gray-300 rounded pl-3 pr-8 py-2 text-sm shadow-sm"
+    >
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="mr">Marathi</option>
+    </select>
+  </div>
 
-      {/* Question Display */}
-      <h2 className="text-xl font-semibold mb-6">Question {currentQuestion + 1} of {riasecQuizData.length}</h2>
-      <p className="text-lg mb-6">
-        {riasecQuizData[currentQuestion].question[language]}
-      </p>
+  {/* Question Display */}
+  <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+    Question {currentQuestion + 1} of {riasecQuizData.length}
+  </h2>
+  <p className="text-lg mb-6 text-gray-700">
+    {riasecQuizData[currentQuestion].question[language]}
+  </p>
 
-      {/* Yes/No Buttons */}
-      <div className="flex justify-center gap-4">
-        <button
-          onClick={() => handleAnswer("yes")}
-          className="px-5 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600"
-        >
-          Yes
-        </button>
-        <button
-          onClick={() => handleAnswer("no")}
-          className="px-5 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600"
-        >
-          No
-        </button>
-      </div>
+  {/* Yes/No Buttons */}
+  <div className="flex flex-col justify-center gap-6">
+    <button
+      onClick={() => handleAnswer("yes")}
+      className="px-5 py-3 border border-green-600 text-green-600 rounded-md font-semibold hover:bg-green-600 hover:text-white shadow-md transition-all transform "
+    >
+      Yes
+    </button>
+    <button
+      onClick={() => handleAnswer("no")}
+      className="px-5 py-3 border border-red-600 text-red-600 rounded-md font-semibold hover:bg-red-600 shadow-md hover:text-white transition-all transform "
+    >
+      No
+    </button>
+  </div>
+</div>
 
-      {/* Show restart button after quiz completion */}
-      {/* {currentQuestion === riasecQuizData.length - 1 && (
-        <div className="mt-6 flex justify-center">
-          <button
-            onClick={restartQuiz}
-            className="px-5 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600"
-          >
-            Restart Quiz
-          </button>
-        </div>
-      )} */}
-    </div>
   );
 };
 

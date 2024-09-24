@@ -9,40 +9,40 @@ import { useEffect, useState } from 'react';
 const quizzes = [
   {
     id: 'rsi-test',
-    imageSrc: '/images/ongoing/img1.jpg',
+    imageSrc: '/images/ongoing/quiz-test-2.webp',
     title: 'RSI Test',
     description: 'Description of Quiz 1',
   },
   {
     id: 'adversity-quiz',
-    imageSrc: '/images/ongoing/img2.jpg',
+    imageSrc: '/images/ongoing/quiz-test.webp',
     title: 'Adversity Response Quize',
     description: 'Adversity Response Profile Quize',
   },
   {
     id: 'riasec-test',
-    imageSrc: '/images/ongoing/img3.jpg',
+    imageSrc: '/images/ongoing/quiz-test-2.webp',
     title: 'Riasec Quiz',
     description: 'Description of Quiz 3',
   },
 
   {
     id: 'psi-test',
-    imageSrc: '/images/ongoing/img4.jpg',
+    imageSrc: '/images/ongoing/quiz-test.webp',
     title: 'Psi Test',
     description: 'Description of Quiz 4',
   },
 
   {
     id: 'learning-style-test',
-    imageSrc: '/images/ongoing/img1.jpg',
-    title: 'earning Style Quiz',
+    imageSrc: '/images/ongoing/quiz-test-2.webp',
+    title: 'Earning Style Quiz',
     description: 'Description of Quiz 5',
   },
 
   {
     id: 'social-style-test',
-    imageSrc: '/images/ongoing/img1.jpg',
+    imageSrc: '/images/ongoing/quiz-test.webp',
     title: 'Social Style Quiz',
     description: 'Description of Quiz 6',
   },
@@ -78,7 +78,7 @@ const QuizPage = () => {
 
   // if(isLoading) return <Loader/>
   return (
-    <div className="mt-[90px] bg-gray-100 min-h-screen">
+    <div className="mt-[90px] pt-[30px] pb-[30px] bg-gray-100 min-h-screen">
           {/* Title and Description */}
       <div className="relative h-[230px] w-full">
         <Image
@@ -104,7 +104,7 @@ const QuizPage = () => {
         {quizzes.map((quiz) => (
           <div
             key={quiz.id}
-            className="relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            className="relative bg-white rounded-lg shadow-sm overflow-hidden"
            
           >
             <div className="relative w-full h-64">
@@ -112,19 +112,20 @@ const QuizPage = () => {
                 src={quiz.imageSrc}
                 alt={quiz.title}
                 layout="fill"
-                objectFit="cover"
-                className="transform transition-transform duration-300 hover:scale-105"
+                objectFit="fill"
+                className=""
               />
             </div>
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2 text-gray-800">{quiz.title}</h2>
-              <p className="text-gray-600 mb-4">{quiz.description}</p>
-              <span 
-                className="w-full py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              <p className="text-gray-600 mb-4">Language: Hindi, English, Marathi</p>
+              {/* <p className="text-gray-600 mb-4">{quiz.description}</p> */}
+              <div 
+                className="w-full text-md py-2 px-4 border border-green-600 text-green-600 rounded-md hover:text-white hover:bg-green-700 cursor-pointer text-center duration-300"
                 onClick={() => handleQuizClick(quiz.id)}
               >
                 Start Quiz
-              </span>
+              </div>
             </div>
           </div>
         ))}
