@@ -4,6 +4,10 @@
 
 
 
+
+body{
+  overflow-x: hidden;
+}
 /* our partner section  */
  @keyframes slide {
   0% {

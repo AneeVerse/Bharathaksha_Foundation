@@ -537,126 +537,126 @@ export const adversityResponseProfile = [
       mr: "5= पूर्णपणे जबाबदार"
     }
   },
-  // {
-  //   id: 3,
-  //   situation: {
-  //     en: "You are criticized for a big project that you just completed",
-  //     hi: "आपको हाल ही में पूरी की गई एक बड़ी परियोजना के लिए आलोचना की गई",
-  //     mr: "तुम्ही नुकतीच पूर्ण केलेल्या मोठ्या प्रकल्पासाठी टीका केली गेली"
-  //   },
-  //   response: {
-  //     en: "Consequences of this situation, affect all aspects or limited to this situation only?",
-  //     hi: "इस स्थिति के परिणाम, सभी पहलुओं को प्रभावित करते हैं या केवल इस स्थिति तक सीमित हैं?",
-  //     mr: "या परिस्थितीचे परिणाम सर्व बाबींना प्रभावित करतात की फक्त या परिस्थितीपुरते मर्यादित आहेत?"
-  //   },
-  //   category: "R",
-  //   minLabel: {
-  //     en: "0= All Aspects of life",
-  //     hi: "0= जीवन के सभी पहलुओं को प्रभावित करता है",
-  //     mr: "0= सर्व बाबींना प्रभावित करते"
-  //   },
-  //   maxLabel: {
-  //     en: "5= Limited to this situation",
-  //     hi: "5= केवल इस स्थिति तक सीमित",
-  //     mr: "5= फक्त या परिस्थितीपुरते मर्यादित"
-  //   }
-  // },
-  // {
-  //   id: 4,
-  //   situation: {
-  //     en: "You accidentally delete a very important email",
-  //     hi: "आपने गलती से एक महत्वपूर्ण ईमेल हटा दिया",
-  //     mr: "तुम्ही चुकून एक महत्वाची ईमेल काढून टाकली"
-  //   },
-  //   response: {
-  //     en: "Consequences of this situation will: Last forever or quickly pass?",
-  //     hi: "इस स्थिति के परिणाम: हमेशा के लिए रहेंगे या जल्दी से गुजर जाएंगे?",
-  //     mr: "या परिस्थितीचे परिणाम कायमचे राहतील की लवकरात लवकर संपेल?"
-  //   },
-  //   category: "E",
-  //   minLabel: {
-  //     en: "0= Lasts forever",
-  //     hi: "0= हमेशा के लिए",
-  //     mr: "0= कायमचे राहतील"
-  //   },
-  //   maxLabel: {
-  //     en: "5= Quickly pass",
-  //     hi: "5= जल्दी से गुजर जाएंगे",
-  //     mr: "5= लवकरात लवकर संपेल"
-  //   }
-  // },
-  // {
-  //   id: 5,
-  //   situation: {
-  //     en: "The high-priority project that you are working on gets canceled",
-  //     hi: "आप जिस उच्च प्राथमिकता वाली परियोजना पर काम कर रहे थे, उसे रद्द कर दिया गया है",
-  //     mr: "तुम्ही काम करत असलेल्या उच्च प्राथमिकता वाल्या प्रकल्पाची रद्दीकरण झाली आहे"
-  //   },
-  //   response: {
-  //     en: "Consequences of this situation, affect all aspects or limited to this situation only?",
-  //     hi: "इस स्थिति के परिणाम, सभी पहलुओं को प्रभावित करते हैं या केवल इस स्थिति तक सीमित हैं?",
-  //     mr: "या परिस्थितीचे परिणाम सर्व बाबींना प्रभावित करतात की फक्त या परिस्थितीपुरते मर्यादित आहेत?"
-  //   },
-  //   category: "R",
-  //   minLabel: {
-  //     en: "0= All Aspects of life",
-  //     hi: "0= जीवन के सभी पहलुओं को प्रभावित करता है",
-  //     mr: "0= सर्व बाबींना प्रभावित करते"
-  //   },
-  //   maxLabel: {
-  //     en: "5= Limited to this situation",
-  //     hi: "5= केवल इस स्थिति तक सीमित",
-  //     mr: "5= फक्त या परिस्थितीपुरते मर्यादित"
-  //   }
-  // },
-  // {
-  //   id: 6,
-  //   situation: {
-  //     en: "Someone you respect ignores your attempt to discuss an important issue",
-  //     hi: "आपके द्वारा सम्मानित किसी व्यक्ति ने महत्वपूर्ण मुद्दे पर चर्चा करने की आपकी कोशिश को नजरअंदाज कर दिया",
-  //     mr: "तुम्ही आदर करत असलेल्या व्यक्तीने महत्वाच्या मुद्द्यावर चर्चा करण्याचा तुमचा प्रयत्न दुर्लक्षित केला"
-  //   },
-  //   response: {
-  //     en: "To what extent do you feel responsible for improving this situation?",
-  //     hi: "इस स्थिति को सुधारने के लिए आप कितना जिम्मेदार महसूस करते हैं?",
-  //     mr: "या परिस्थितीत सुधारणा करण्यासाठी तुम्ही किती जबाबदारी वाटते?"
-  //   },
-  //   category: "O",
-  //   minLabel: {
-  //     en: "0= Not Responsible",
-  //     hi: "0= जिम्मेदार नहीं",
-  //     mr: "0= जबाबदार नाही"
-  //   },
-  //   maxLabel: {
-  //     en: "5= Completely responsible",
-  //     hi: "5= पूरी तरह जिम्मेदार",
-  //     mr: "5= पूर्णपणे जबाबदार"
-  //   }
-  // },
-  // {
-  //   id: 7,
-  //   situation: {
-  //     en: "People respond unfavourably to your latest ideas",
-  //     hi: "लोग आपके नवीनतम विचारों का अनुकूल जवाब नहीं देते",
-  //     mr: "लोक तुमच्या नवीनतम कल्पनांना अनुकूल प्रतिसाद देत नाहीत"
-  //   },
-  //   response: {
-  //     en: "To what extent can you influence this situation?",
-  //     hi: "आप इस स्थिति को कितना प्रभावित कर सकते हैं?",
-  //     mr: "तुम्ही या परिस्थितीला किती प्रभावित करू शकता?"
-  //   },
-  //   category: "C",
-  //   minLabel: {
-  //     en: "0= Not at All",
-  //     hi: "0= बिल्कुल नहीं",
-  //     mr: "0= अजिबात नाही"
-  //   },
-  //   maxLabel: {
-  //     en: "5= Completely",
-  //     hi: "5= पूरी तरह",
-  //     mr: "5= पूर्णपणे"
-  //   }
-  // },
+  {
+    id: 3,
+    situation: {
+      en: "You are criticized for a big project that you just completed",
+      hi: "आपको हाल ही में पूरी की गई एक बड़ी परियोजना के लिए आलोचना की गई",
+      mr: "तुम्ही नुकतीच पूर्ण केलेल्या मोठ्या प्रकल्पासाठी टीका केली गेली"
+    },
+    response: {
+      en: "Consequences of this situation, affect all aspects or limited to this situation only?",
+      hi: "इस स्थिति के परिणाम, सभी पहलुओं को प्रभावित करते हैं या केवल इस स्थिति तक सीमित हैं?",
+      mr: "या परिस्थितीचे परिणाम सर्व बाबींना प्रभावित करतात की फक्त या परिस्थितीपुरते मर्यादित आहेत?"
+    },
+    category: "R",
+    minLabel: {
+      en: "0= All Aspects of life",
+      hi: "0= जीवन के सभी पहलुओं को प्रभावित करता है",
+      mr: "0= सर्व बाबींना प्रभावित करते"
+    },
+    maxLabel: {
+      en: "5= Limited to this situation",
+      hi: "5= केवल इस स्थिति तक सीमित",
+      mr: "5= फक्त या परिस्थितीपुरते मर्यादित"
+    }
+  },
+  {
+    id: 4,
+    situation: {
+      en: "You accidentally delete a very important email",
+      hi: "आपने गलती से एक महत्वपूर्ण ईमेल हटा दिया",
+      mr: "तुम्ही चुकून एक महत्वाची ईमेल काढून टाकली"
+    },
+    response: {
+      en: "Consequences of this situation will: Last forever or quickly pass?",
+      hi: "इस स्थिति के परिणाम: हमेशा के लिए रहेंगे या जल्दी से गुजर जाएंगे?",
+      mr: "या परिस्थितीचे परिणाम कायमचे राहतील की लवकरात लवकर संपेल?"
+    },
+    category: "E",
+    minLabel: {
+      en: "0= Lasts forever",
+      hi: "0= हमेशा के लिए",
+      mr: "0= कायमचे राहतील"
+    },
+    maxLabel: {
+      en: "5= Quickly pass",
+      hi: "5= जल्दी से गुजर जाएंगे",
+      mr: "5= लवकरात लवकर संपेल"
+    }
+  },
+  {
+    id: 5,
+    situation: {
+      en: "The high-priority project that you are working on gets canceled",
+      hi: "आप जिस उच्च प्राथमिकता वाली परियोजना पर काम कर रहे थे, उसे रद्द कर दिया गया है",
+      mr: "तुम्ही काम करत असलेल्या उच्च प्राथमिकता वाल्या प्रकल्पाची रद्दीकरण झाली आहे"
+    },
+    response: {
+      en: "Consequences of this situation, affect all aspects or limited to this situation only?",
+      hi: "इस स्थिति के परिणाम, सभी पहलुओं को प्रभावित करते हैं या केवल इस स्थिति तक सीमित हैं?",
+      mr: "या परिस्थितीचे परिणाम सर्व बाबींना प्रभावित करतात की फक्त या परिस्थितीपुरते मर्यादित आहेत?"
+    },
+    category: "R",
+    minLabel: {
+      en: "0= All Aspects of life",
+      hi: "0= जीवन के सभी पहलुओं को प्रभावित करता है",
+      mr: "0= सर्व बाबींना प्रभावित करते"
+    },
+    maxLabel: {
+      en: "5= Limited to this situation",
+      hi: "5= केवल इस स्थिति तक सीमित",
+      mr: "5= फक्त या परिस्थितीपुरते मर्यादित"
+    }
+  },
+  {
+    id: 6,
+    situation: {
+      en: "Someone you respect ignores your attempt to discuss an important issue",
+      hi: "आपके द्वारा सम्मानित किसी व्यक्ति ने महत्वपूर्ण मुद्दे पर चर्चा करने की आपकी कोशिश को नजरअंदाज कर दिया",
+      mr: "तुम्ही आदर करत असलेल्या व्यक्तीने महत्वाच्या मुद्द्यावर चर्चा करण्याचा तुमचा प्रयत्न दुर्लक्षित केला"
+    },
+    response: {
+      en: "To what extent do you feel responsible for improving this situation?",
+      hi: "इस स्थिति को सुधारने के लिए आप कितना जिम्मेदार महसूस करते हैं?",
+      mr: "या परिस्थितीत सुधारणा करण्यासाठी तुम्ही किती जबाबदारी वाटते?"
+    },
+    category: "O",
+    minLabel: {
+      en: "0= Not Responsible",
+      hi: "0= जिम्मेदार नहीं",
+      mr: "0= जबाबदार नाही"
+    },
+    maxLabel: {
+      en: "5= Completely responsible",
+      hi: "5= पूरी तरह जिम्मेदार",
+      mr: "5= पूर्णपणे जबाबदार"
+    }
+  },
+  {
+    id: 7,
+    situation: {
+      en: "People respond unfavourably to your latest ideas",
+      hi: "लोग आपके नवीनतम विचारों का अनुकूल जवाब नहीं देते",
+      mr: "लोक तुमच्या नवीनतम कल्पनांना अनुकूल प्रतिसाद देत नाहीत"
+    },
+    response: {
+      en: "To what extent can you influence this situation?",
+      hi: "आप इस स्थिति को कितना प्रभावित कर सकते हैं?",
+      mr: "तुम्ही या परिस्थितीला किती प्रभावित करू शकता?"
+    },
+    category: "C",
+    minLabel: {
+      en: "0= Not at All",
+      hi: "0= बिल्कुल नहीं",
+      mr: "0= अजिबात नाही"
+    },
+    maxLabel: {
+      en: "5= Completely",
+      hi: "5= पूरी तरह",
+      mr: "5= पूर्णपणे"
+    }
+  },
   // {
   //   id: 8,
   //   situation: {

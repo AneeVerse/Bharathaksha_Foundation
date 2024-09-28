@@ -59,8 +59,8 @@ export default function QuizResult({ params }) {
   };
 
   return (
-    <div className="max-w-4xl mt-[90px] mx-auto p-6 rounded-lg">
-      <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Quiz Result</h1>
+    <div className="max-w-7xl mt-[90px] mx-auto rounded-lg">
+      {/* <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Quiz Result</h1> */}
       {renderQuizResult()}
     </div>
   );
