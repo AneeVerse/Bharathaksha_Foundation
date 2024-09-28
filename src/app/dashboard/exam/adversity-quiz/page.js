@@ -2,15 +2,16 @@
 import React, { useState } from "react";
 import { adversityResponseProfile } from "@/data/adversityResponseProfile";
 import { useDispatch } from 'react-redux';
-import { setAnswers, setTotalScore,  setCategoryScores, submitQuizResults, setTitle, setType } from '@/store/slice/quizSlice';
 import { useRouter } from 'next/navigation';
 
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { FaSpinner } from "react-icons/fa"; // Import spinner icon
+
 const Quiz = () => {
   const [language, setLanguage] = useState("en");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setLocalAnswers] = useState(Array(adversityResponseProfile.length).fill(-1));
-
+  const [loading, setLoading] = useState(false); // Add loading state
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -57,37 +58,19 @@ const Quiz = () => {
     return { categoryScores, questionBreakdown };
   };
 
-  // const submitQuiz = async () => {
-  //   const totalScore = answers.reduce((sum, score) => sum + score, 0) * 2;
-  //   const { categoryScores, questionBreakdown } = calculateCategoryScores(answers); // Calculate category-wise scores and breakdown
-
-  //   // Dispatch actions to store data in Redux
-  //   dispatch(setAnswers(answers));
-  //   dispatch(setTotalScore(totalScore));
-  //   dispatch(setTitle("Adversity Response Profile Test"))
-  //   dispatch(setType("Adversity"))
-  //   dispatch(setCategoryScores({ categoryScores, questionBreakdown })); // Dispatch category scores and breakdown to Redux
-
-  // const resData = await dispatch(submitQuizResults()); // Dispatch async thunk to submit the results
-  //   const resultId =  resData.payload.quizResult._id
-  //   // Redirect to result page
-  //   router.push(`/dashboard/result/${resultId}`);
-  // };
-
   const submitQuiz = async () => {
+    setLoading(true); // Set loading state to true
     const totalScore = answers.reduce((sum, score) => sum + score, 0) * 2;
-  
     const { categoryScores, questionBreakdown } = calculateCategoryScores(answers); // Logic to calculate category scores
-  
+
     const quizResult = {
       title: "Adversity Response Profile Test",
       type: "Adversity",
-      // answers,
       totalScore,
       categoryScores,
-      questionBreakdown
+      questionBreakdown,
     };
-  
+
     try {
       const res = await fetch('/api/quiz/saveResult', {
         method: 'POST',
@@ -97,7 +80,7 @@ const Quiz = () => {
         },
         body: JSON.stringify(quizResult),
       });
-  
+
       if (res.ok) {
         const resultData = await res.json();
         router.push(`/dashboard/result/${resultData.quizResult._id}`);
@@ -106,35 +89,34 @@ const Quiz = () => {
       }
     } catch (error) {
       console.error('Error submitting quiz:', error);
+    } finally {
+      setLoading(false); // Set loading state to false after submission
     }
   };
-  
-  
 
   return (
     <div className="max-w-4xl mx-3  sm:mx-4 md:mx-10 lg:mx-auto mt-36 p-3 sm:p-8 bg-white rounded-lg mb-12 shadow-lg border border-gray-200">
       {/* Language Selection Dropdown */}
       <div className="mb-6 flex justify-end gap-2 items-center">
-    <label htmlFor="language" className=" text-md self-center font-semibold text-gray-700">
-      Select Language:
-    </label>
-    <div className="relative self-center">
-    <select
-      id="language"
-      value={language}
-      onChange={(e) => setLanguage(e.target.value)}
-      className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
-    >
-      <option value="en">English</option>
-      <option value="hi">Hindi</option>
-      <option value="mr">Marathi</option>
-    </select>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="h-5 w-5 ml-1 absolute top-2.5 right-2.5 text-slate-700">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-    </svg>
-    </div>
-  </div>
-
+        <label htmlFor="language" className=" text-md self-center font-semibold text-gray-700">
+          Select Language:
+        </label>
+        <div className="relative self-center">
+          <select
+            id="language"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
+          >
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="mr">Marathi</option>
+          </select>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="h-5 w-5 ml-1 absolute top-2.5 right-2.5 text-slate-700">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+          </svg>
+        </div>
+      </div>
 
       {/* Question Title */}
       <h2 className=" text-2xl sm:text-3xl font-semibold text-center text-gray-800 mb-6">
@@ -208,19 +190,22 @@ const Quiz = () => {
           // Submit Button
           <button
             onClick={submitQuiz}
-            disabled={answers[currentQuestion] === -1}
+            disabled={answers[currentQuestion] === -1 || loading} // Disable when loading is true
             className={`px-6 py-3 text-sm sm:text-lg rounded-lg font-semibold transition-all duration-200 shadow-md focus:outline-none ${
-              answers[currentQuestion] === -1
+              answers[currentQuestion] === -1 || loading
                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                 : "bg-green-600 text-white hover:bg-green-700"
             }`}
           >
-            Submit
+            {loading ? (
+              <FaSpinner className="animate-spin" /> // Show spinner when loading
+            ) : (
+              "Submit"
+            )}
           </button>
         )}
       </div>
     </div>
-
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function SocialStyleResult({ data }) {
-  const { x, y } = {x: -18, y:0}; // Example coordinates
+  const { x, y } = data.coordinates; // Example coordinates
 
   // Set graph dimensions and scale
   const width = 290; // width of the SVG

@@ -7,25 +7,25 @@ const learningStyles = {
   V: {
     name: "Visual",
     description:
-      "You have a preference for seeing and observing things, such as pictures, diagrams, and demonstrations.",
+      "Someone with a Visual learning style has a preference for seen or observed things, including pictures, diagrams, demonstrations, displays, handouts, films, flip-chart, etc. These people will use phrases such as ‘show me’, ‘let’s have a look at that’ and will be best able to perform a new task after reading the instructions or watching someone else do it first. These are the people who will work from lists and written directions and instructions.",
     icon: <FaEye className="text-green-600 text-3xl" />
   },
   A: {
     name: "Auditory",
     description:
-      "You learn best through listening to information, whether it be through spoken words, discussions, or lectures.",
+      "Someone with an Auditory learning style has a preference for the transfer of information through listening: to the spoken word, of self or others, of sounds and noises. These people will use phrases such as ‘tell me’, ‘let’s talk it over’ and will be best able to perform a new task after listening to instructions from an expert. These are the people who are happy being given spoken instructions over the telephone, and can remember all the words to songs that they hear!",
     icon: <FaVolumeUp className="text-blue-600 text-3xl" />
   },
   R: {
     name: "Read/Write",
     description:
-      "You prefer information to be presented in written format, such as through reports, essays, or manuals.",
+      "Someone with a Read/Writing learning style has a preference for information to be displayed in words – text based information, reports, manuals, essays and assignments. These people will use words such as let me read the instructions, let me write you a report, I will do my presentation on a PowerPoint. These are the people who will like to read about a subject, follow written instructions and write their responses.",
     icon: <FaFileAlt className="text-purple-600 text-3xl" />
   },
   K: {
     name: "Kinesthetic",
     description:
-      "You learn best through physical experiences, such as hands-on activities, experiments, and demonstrations.",
+      "Someone with a Kinesthetic learning style has a preference for physical experience - touching, feeling, holding, doing, practical hands-on experiences. These people will use phrases such as ‘let me try’, ‘how do you feel?’ and will be best able to perform a new task by going ahead and trying it out, learning as they go. These are the people who like to experiment, hands-on, and never look at the instructions first! The higher your score in a particular style, that is the main preferred learning style, but this will be part of a blend of all four. Some people have a very strong preference; other people have a more even mixture of two, three or less commonly, four styles. When you know your preferred learning style(s) you understand the type of learning that best suits you. This enables you to choose the types of learning that work best for you. There is no right or wrong learning style. The point is that there are types of learning that are right for your own preferred learning style.",
     icon: <FaHands className="text-orange-600 text-3xl" />
   }
 };

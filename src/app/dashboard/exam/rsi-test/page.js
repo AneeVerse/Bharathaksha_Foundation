@@ -9,6 +9,7 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(rsiQuizData.length).fill([-1, -1])); // Initialize with -1 meaning no selection
   const [language, setLanguage] = useState("en"); // Default language set to English
+  const [loading, setLoading] = useState(false); // Loading state for submit button
 
   // Handle score changes for each question
   const handleAnswerChange = (index, statement1Value) => {
@@ -30,32 +31,8 @@ const Quiz = () => {
     }
   };
 
-  // const submitQuiz = () => {
-  //   const counts = {
-  //     A: 0,
-  //     B: 0,
-  //     C: 0,
-  //     D: 0,
-  //     E: 0,
-  //     F: 0,
-  //     G: 0,
-  //     H: 0,
-  //     I: 0,
-  //   };
-
-  //   // Count the occurrences of each option
-  //   rsiQuizData.forEach((question, index) => {
-  //     const selectedOption1 = question.options[0].id;
-  //     const selectedOption2 = question.options[1].id;
-  //     counts[selectedOption1] += answers[index][0]; // Add points for statement 1
-  //     counts[selectedOption2] += answers[index][1]; // Add points for statement 2
-  //   });
-
-  //   console.log("Final Scores:", counts);
-  //   alert(JSON.stringify(counts, null, 2)); // Show result in an alert (you can replace this with a proper result display)
-  // };
-
   const submitQuiz = async () => {
+    setLoading(true); // Set loading to true when submission starts
     const counts = {
       A: 0,
       B: 0,
@@ -102,11 +79,10 @@ const Quiz = () => {
       }
     } catch (error) {
       console.error('Error submitting quiz:', error);
+    } finally {
+      setLoading(false); // Reset loading state after submission
     }
   };
-  
-  
-
 
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
 
@@ -199,14 +175,20 @@ const Quiz = () => {
         ) : (
           <button
             onClick={submitQuiz}
-            disabled={isNextDisabled} // Disable the Submit button if nothing is selected
+            disabled={isNextDisabled || loading} // Disable the Submit button if nothing is selected or if loading
             className={`px-5 py-2 rounded-lg font-semibold ${
-              isNextDisabled
+              isNextDisabled || loading
                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                 : "bg-blue-500 text-white hover:bg-blue-600"
             }`}
           >
-            Submit
+            {loading ? (
+              <div className="flex items-center justify-center">
+                <div className="animate-spin h-5 w-5 border-4 border-t-transparent border-white rounded-full" />
+              </div>
+            ) : (
+              "Submit"
+            )}
           </button>
         )}
       </div>

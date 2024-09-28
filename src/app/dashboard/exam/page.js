@@ -36,7 +36,7 @@ const quizzes = [
   {
     id: 'learning-style-test',
     imageSrc: '/images/ongoing/quiz-test-2.webp',
-    title: 'Earning Style Quiz',
+    title: 'Learning Style Quiz',
     description: 'Description of Quiz 5',
   },
 

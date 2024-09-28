@@ -9,6 +9,7 @@ const PersonalStyleInventoryQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(psiQuizData.length).fill([-1, -1])); // Initialize with -1 meaning no selection
   const [language, setLanguage] = useState("en"); // Default language set to English
+  const [loading, setLoading] = useState(false); // Loading state for submit button
 
   // Handle score changes for each question
   const handleAnswerChange = (index, statement1Value) => {
@@ -65,7 +66,6 @@ const PersonalStyleInventoryQuiz = () => {
   //   alert(`Your Personality Type is: ${result} ${JSON.stringify(counts)}`); // Show result in an alert (can replace with proper UI display)
   // };
 
-
   const submitQuiz = async () => {
     const counts = {
       I: 0,
@@ -77,81 +77,77 @@ const PersonalStyleInventoryQuiz = () => {
       P: 0,
       J: 0,
     };
-  
-    // Calculate the score for each category based on the answers
+
     psiQuizData.forEach((question, index) => {
       const answer1 = answers[index][0]; // Value for the first statement
       const answer2 = answers[index][1]; // Value for the second statement
-  
+
       const category1 = question.options[0].category; // First category (I, N, T, P)
       const category2 = question.options[1].category; // Second category (E, S, F, J)
-  
+
       counts[category1] += answer1;
       counts[category2] += answer2;
     });
-  
-    // Determine the dominant category for each pair
+
     const ie = counts.I > counts.E ? "I" : "E";
     const ns = counts.N > counts.S ? "N" : "S";
     const tf = counts.T > counts.F ? "T" : "F";
     const pj = counts.P > counts.J ? "P" : "J";
-  
-    const result = `${ie}${ns}${tf}${pj}`; // Final personality type
-  
-    // Prepare the data to be sent to the server
+
+    const result = `${ie}${ns}${tf}${pj}`;
+
     const quizResult = {
       title: "Psi Personality Test",
       type: "PsiTest",
-      // answers: answers, // Raw answers as selected by the user
-      finalType: result, // The 4-letter personality type
-      categoryScores: counts, // Detailed scores for each category
+      finalType: result,
+      categoryScores: counts,
       totalScores: [
-        { I: counts.I }, 
-        { E: counts.E }, 
-        { N: counts.N }, 
-        { S: counts.S }, 
-        { T: counts.T }, 
-        { F: counts.F }, 
-        { P: counts.P }, 
-        { J: counts.J }
-      ] // Array of total scores
+        { I: counts.I },
+        { E: counts.E },
+        { N: counts.N },
+        { S: counts.S },
+        { T: counts.T },
+        { F: counts.F },
+        { P: counts.P },
+        { J: counts.J },
+      ],
     };
-  
+
     try {
-      // Retrieve the JWT token from localStorage
+      setLoading(true); // Show loading spinner
+
       const token = localStorage.getItem('token');
-      
-      // Make sure the token is available
+
       if (!token) {
         alert('Token not found. Please log in again.');
+        setLoading(false); // Stop loading if there's an error
         return;
       }
-  
-      // Send the result data to the server
+
       const res = await fetch('/api/quiz/saveResult', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Use the JWT token for authentication
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify(quizResult),
       });
-  
+
       if (res.ok) {
         const resultData = await res.json();
         console.log('Quiz result saved successfully:', resultData);
-  
-        // Redirect to the result page (assuming it shows the saved result)
-      
+
+        // Redirect to the result page
         router.push(`/dashboard/result/${resultData.quizResult._id}`);
       } else {
         console.error('Failed to save quiz result.');
       }
     } catch (error) {
       console.error('Error submitting quiz:', error);
+    } finally {
+      setLoading(false); // Stop loading when the request finishes
     }
   };
-  
   
   
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
@@ -251,29 +247,28 @@ const PersonalStyleInventoryQuiz = () => {
           Previous
         </button>
 
-        {currentQuestion < psiQuizData.length - 1 ? (
+        {currentQuestion === psiQuizData.length - 1 ? (
           <button
-            onClick={nextQuestion}
-            disabled={isNextDisabled} // Disable the Next button until a selection is made
-            className={`px-5 py-2 rounded-lg font-semibold ${
-              isNextDisabled
-                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                : "bg-green-500 text-white hover:bg-green-600"
-            }`}
+            onClick={submitQuiz}
+            className={`py-2 px-6 rounded-lg font-semibold bg-green-600 text-white hover:bg-green-700 flex items-center justify-center ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={loading} // Disable button during loading
           >
-            Next
+            {loading ? (
+              <div className="flex items-center">
+                <span className="animate-spin h-5 w-5 border-t-2 border-b-2 border-white rounded-full mr-2"></span>
+                Submitting...
+              </div>
+            ) : (
+              'Submit'
+            )}
           </button>
         ) : (
           <button
-            onClick={submitQuiz}
-            disabled={isNextDisabled} // Disable the Submit button if nothing is selected
-            className={`px-5 py-2 rounded-lg font-semibold ${
-                isNextDisabled
-                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                : "bg-blue-500 text-white hover:bg-blue-600"
-            }`}
+            onClick={nextQuestion}
+            disabled={isNextDisabled}
+            className="py-2 px-4 rounded-lg font-semibold bg-green-600 text-white hover:bg-green-700 disabled:bg-gray-100 disabled:text-gray-400"
           >
-            Submit
+            Next
           </button>
         )}
       </div>

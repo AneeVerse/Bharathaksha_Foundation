@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { learningStyleQuiz } from "@/data/learningStyleQuiz"; // Assuming the quiz data is imported from your file
 import { useRouter } from "next/navigation";
+import { FaSpinner } from "react-icons/fa"; // Importing the spinner icon
 
 const VARKQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -15,6 +16,7 @@ const VARKQuiz = () => {
     K: 0,
   });
   const [language, setLanguage] = useState("en"); // Default language is English
+  const [loading, setLoading] = useState(false); // Loading state for the spinner
 
   // Handle option selection and update VARK category counts
   const handleAnswerChange = (option) => {
@@ -60,71 +62,39 @@ const VARKQuiz = () => {
     }
   };
 
- // Submit Quiz and send data to the backend
-//  const submitQuiz = async () => {
-//   const totalScore = varkCounts.V + varkCounts.A + varkCounts.R + varkCounts.K;
-  
-//   const quizResult = {
-//     title: "VARK Learning Style Quiz",
-//     type: "LearningStyle",
-//     answers: answers,
-//     totalScore,
-//     varkCounts
-//   };
+  const submitQuiz = async () => {
+    setLoading(true); // Set loading to true when submission starts
+    const totalScore = varkCounts.V + varkCounts.A + varkCounts.R + varkCounts.K;
 
-//   try {
-//     const res = await fetch('/api/quiz/saveResult', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${localStorage.getItem('token')}`,
-//       },
-//       body: JSON.stringify(quizResult),
-//     });
+    const quizResult = {
+      title: "VARK Learning Style Quiz",
+      type: "LearningStyle",
+      totalScore,
+      varkCounts,
+    };
 
-//     if (res.ok) {
-//       const resultData = await res.json();
-//       router.push(`/dashboard/result/${resultData.quizResult._id}`);
-//     } else {
-//       console.error('Failed to save quiz result.');
-//     }
-//   } catch (error) {
-//     console.error('Error submitting quiz:', error);
-//   }
-// };
+    try {
+      const res = await fetch('/api/quiz/saveResult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(quizResult),
+      });
 
-const submitQuiz = async () => {
-  const totalScore = varkCounts.V + varkCounts.A + varkCounts.R + varkCounts.K;
-
-  const quizResult = {
-    title: "VARK Learning Style Quiz",
-    type: "LearningStyle",
-    // answers,
-    totalScore,
-    varkCounts
-  };
-
-  try {
-    const res = await fetch('/api/quiz/saveResult', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify(quizResult),
-    });
-
-    if (res.ok) {
-      const resultData = await res.json();
-      router.push(`/dashboard/result/${resultData.quizResult._id}`);
-    } else {
-      console.error('Failed to save quiz result.');
+      if (res.ok) {
+        const resultData = await res.json();
+        router.push(`/dashboard/result/${resultData.quizResult._id}`);
+      } else {
+        console.error('Failed to save quiz result.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+    } finally {
+      setLoading(false); // Set loading to false when submission is complete
     }
-  } catch (error) {
-    console.error('Error submitting quiz:', error);
-  }
-};
-
+  };
 
   // Check if at least one option is selected for the current question
   const isNextDisabled =
@@ -163,7 +133,7 @@ const submitQuiz = async () => {
 
       {/* Question */}
       <h2 className="text-xl font-semibold mb-6">
-      Question  {currentQuestion + 1}/{learningStyleQuiz.length}
+        Question {currentQuestion + 1}/{learningStyleQuiz.length}
       </h2>
       <p className="text-lg mb-4 font-medium">
         {learningStyleQuiz[currentQuestion].question[language]}
@@ -226,14 +196,18 @@ const submitQuiz = async () => {
         ) : (
           <button
             onClick={submitQuiz}
-            disabled={isNextDisabled}
+            disabled={isNextDisabled || loading} // Disable button during loading
             className={`px-5 py-2 rounded-lg font-semibold ${
-              isNextDisabled
+              isNextDisabled || loading
                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                 : "bg-blue-500 text-white hover:bg-blue-600"
             }`}
           >
-            Submit
+            {loading ? (
+              <FaSpinner className="animate-spin" /> // Show spinner when loading
+            ) : (
+              "Submit"
+            )}
           </button>
         )}
       </div>

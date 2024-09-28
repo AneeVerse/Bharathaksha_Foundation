@@ -10,6 +10,7 @@ const SocialStylesQuiz = () => {
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const [answers, setAnswers] = useState({}); // Track selected answers
   const [language, setLanguage] = useState("en"); // Default language is English
+  const [loading, setLoading] = useState(false); // Add loading state
 
   // Handle answer selection
   const handleAnswerChange = (option) => {
@@ -44,19 +45,15 @@ const SocialStylesQuiz = () => {
     }
   };
 
-  // const submitQuiz = () => {
-  //   alert(`Final Coordinates:\nX: ${coordinates.x}, Y: ${coordinates.y}`);
-  //   // Further processing can be done based on the coordinates
-  // };
-
   const submitQuiz = async () => {
+    setLoading(true); // Set loading to true when submit starts
     const quizResult = {
       title: "Social Styles Quiz",
       type: "SocialStyle",
       // answers, // Assuming answers store selected options
       coordinates // Save the final coordinates (e.g., {x: 2, y: -1})
     };
-  
+
     try {
       const res = await fetch('/api/quiz/saveResult', {
         method: 'POST',
@@ -66,7 +63,7 @@ const SocialStylesQuiz = () => {
         },
         body: JSON.stringify(quizResult),
       });
-  
+
       if (res.ok) {
         const resultData = await res.json();
         router.push(`/dashboard/result/${resultData.quizResult._id}`);
@@ -75,10 +72,11 @@ const SocialStylesQuiz = () => {
       }
     } catch (error) {
       console.error('Error submitting quiz:', error);
+    } finally {
+      setLoading(false); // Set loading back to false when the request is done
     }
   };
-  
-  
+
   // Disable next button until an option is selected for the current question
   const isNextDisabled = !answers[socialStylesQuiz[currentQuestion].id];
 
@@ -157,16 +155,36 @@ const SocialStylesQuiz = () => {
               isNextDisabled
                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                 : "bg-green-500 text-white hover:bg-green-600"
-            }`}
-          >
+            }`
+          }>
             Next
           </button>
         ) : (
           <button
             onClick={submitQuiz}
-            className="px-5 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600"
+            disabled={loading} // Disable button when loading
+            className={`px-5 py-2 rounded-lg font-semibold ${
+              loading
+                ? "bg-blue-300 text-gray-500 cursor-not-allowed"
+                : "bg-blue-500 text-white hover:bg-blue-600"
+            }`}
           >
-            Submit
+            {loading ? (
+              <span className="flex items-center">
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12c0-4.418 3.582-8 8-8s8 3.582 8 8"></path>
+                </svg>
+                Submitting...
+              </span>
+            ) : (
+              "Submit"
+            )}
           </button>
         )}
       </div>

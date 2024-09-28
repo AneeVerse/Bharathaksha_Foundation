@@ -75,7 +75,7 @@ export default function RIASECResult({ data }) {
         {/* Recommended Career Paths Section */}
         <div className="mt-10">
           <h3 className="text-2xl font-semibold text-gray-700 mb-6 text-center border-b pb-2">Recommended Career Paths</h3>
-          <ul className="space-y-6">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {topScores.map(([category], index) => (
               <li key={index} className="flex items-center gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-md">
                 <div className="text-4xl">{icons[category]}</div>
