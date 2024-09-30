@@ -183,7 +183,7 @@ export default function Navbar() {
                   </button>
 
                   {/* Profile dropdown */}
-                  <div className="absolute right-0 border py-2  w-48 bg-white shadow-xl rounded-md hidden group-hover:block">
+                  <div className="absolute right-0 -mt-3 border py-2  w-48 bg-white shadow-xl rounded-md hidden group-hover:block">
                     
                     <Link 
                       href={"/dashboard/result"}

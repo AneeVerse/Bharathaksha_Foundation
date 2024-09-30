@@ -51,7 +51,7 @@ export default function RsiTest({ data }) {
         </p>
         <button
           onClick={() => alert("Redirecting to counseling page...")} // Placeholder for redirect action
-          className="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition-colors shadow-lg"
+          className="bg-green-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg"
         >
           Book detailed Counseling Session
         </button>
