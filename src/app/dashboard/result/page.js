@@ -63,7 +63,7 @@ const Page = () => {
         Test Results
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 gap-6">
         {data && data.map((quiz, index) => (
           <div key={index} className="bg-white shadow rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">{quiz.title}</h2>
