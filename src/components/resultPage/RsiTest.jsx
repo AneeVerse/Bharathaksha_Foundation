@@ -17,14 +17,17 @@ const categoryDescriptions = {
 export default function RsiTest({ data }) {
   const { totalScore, counts } = data;
 
+  // Convert counts object into an array and sort by score in ascending order
+  const sortedCounts = Object.entries(counts).sort(([, scoreA], [, scoreB]) => scoreB - scoreA);
+
   return (
-    <div className=" p-6 ">
+    <div className="p-6">
       <h2 className="text-4xl font-bold mb-6 text-center text-gray-900">RSI Test Result</h2>
 
       <div className="mb-8">
-        {/* <h3 className="text-3xl font-semibold mb-4 text-gray-800 text-center">Your Score</h3> */}
+        {/* Score Cards Displayed in Ascending Order */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {Object.entries(counts).map(([category, score]) => (
+          {sortedCounts.map(([category, score]) => (
             <div
               key={category}
               className={`p-6 bg-white border rounded-lg shadow-md transition-transform transform hover:scale-105 
@@ -50,7 +53,7 @@ export default function RsiTest({ data }) {
           onClick={() => alert("Redirecting to counseling page...")} // Placeholder for redirect action
           className="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition-colors shadow-lg"
         >
-          Book a Counseling Session
+          Book detailed Counseling Session
         </button>
       </div>
     </div>

@@ -81,7 +81,7 @@ export default function SocialStyleResult({ data }) {
           onClick={() => alert("Redirecting to counseling page...")} // Placeholder for redirect action
           className="bg-green-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg"
         >
-          Book a Counseling Session
+            Book detailed Counseling Session
         </button>
       </div>
     </div>

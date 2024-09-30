@@ -97,7 +97,7 @@ const PersonalStyleInventoryQuiz = () => {
     const result = `${ie}${ns}${tf}${pj}`;
 
     const quizResult = {
-      title: "Psi Personality Test",
+      title: "Psi Test",
       type: "PsiTest",
       finalType: result,
       categoryScores: counts,
@@ -149,6 +149,11 @@ const PersonalStyleInventoryQuiz = () => {
     }
   };
   
+  const description = {
+    en: "Just as every person has differently shaped feet and toes from every other person, so we all have differently “shaped” personalities. Just as no person’s foot shape is “right” or “wrong,” so no person’s personality shape is right or wrong. The purpose of this inventory is to give you a picture of the shape of your preferences, but that shape, while different from the shapes of other persons’ personalities, has nothing to do with mental health or intelligence.",
+    hi: "जैसे हर व्यक्ति के पैर और अंगुलियां आकार में अलग होते हैं, वैसे ही हमारी व्यक्तित्व की 'शेप' भी अलग होती है। जैसे किसी व्यक्ति के पैर का आकार सही या गलत नहीं होता, वैसे ही किसी व्यक्ति के व्यक्तित्व की 'शेप' सही या गलत नहीं होती। इस इन्वेंटरी का उद्देश्य आपकी प्राथमिकताओं की तस्वीर देना है, लेकिन यह 'शेप', जबकि अन्य व्यक्तियों के व्यक्तित्वों से भिन्न है, मानसिक स्वास्थ्य या बुद्धिमत्ता से संबंधित नहीं है।",
+    mr: "प्रत्येक व्यक्तीचे पाय आणि बोटांचे आकार वेगवेगळे असतात तसेच आपल्या व्यक्तिमत्त्वांचे 'आकार' देखील वेगवेगळे असतात. जसे कोणत्याही व्यक्तीच्या पायाचा आकार योग्य किंवा चुकीचा नसतो, तसेच कोणत्याही व्यक्तीच्या व्यक्तिमत्त्वाचा आकार योग्य किंवा चुकीचा नसतो. या इन्वेंटरीचा उद्देश आपल्या पसंतीच्या आकाराचे चित्र देणे आहे, परंतु तो आकार, इतर व्यक्तींच्या व्यक्तिमत्त्वांच्या आकारांपेक्षा भिन्न असला तरी मानसिक आरोग्य किंवा बुद्धिमत्तेशी संबंधित नाही."
+  };
   
   const isNextDisabled = answers[currentQuestion][0] === -1; // Disable the Next button if no selection is made
 
@@ -157,32 +162,8 @@ const PersonalStyleInventoryQuiz = () => {
       {/* Introduction to the Personal Style Inventory */}
       <div className="mb-6">
         <h1 className="text-2xl font-semibold mb-4 text-center">Personal Style Inventory</h1>
-        <p className="mb-4 text-sm text-gray-700">
-          Just as every person has differently shaped feet and toes from every other person, so we all have differently
-          “shaped” personalities. Just as no person’s foot shape is “right” or “wrong,” so no person’s personality shape
-          is right or wrong. The purpose of this inventory is to give you a picture of the shape of your preferences, but
-          that shape, while different from the shapes of other persons’ personalities, has nothing to do with mental health
-          or intelligence.
-        </p>
-        <p className="mb-4 text-sm text-gray-700">
-          The following items are arranged in pairs (a & b) and each member of the pair represents a preference you may or may not hold. 
-          Rate your preference for each item by giving it a score between 0 - 5.
-        </p>
-        <ul className="list-disc list-inside mb-6 text-sm text-gray-700">
-          <li>0 = You really feel negative about it or very positive about the other member of the pair.</li>
-          <li>1 = Still feel quite negative about this item.</li>
-          <li>2 = Feel moderately negative about the item.</li>
-          <li>3 = Not really strongly negative or positive.</li>
-          <li>4 = Feel much more positive about this item.</li>
-          <li>5 = You strongly prefer it or do not prefer the other member of the pair.</li>
-        </ul>
-        {/* <p className="mb-4 text-sm text-gray-700">
-          The scores for each &quot;a & b&quot; pair MUST ADD UP TO 5 (i.e., 0+5, 1+4, 2+3). Do not use fractions such as 2½.
-        </p> */}
-      </div>
-
-      {/* Language Selection Dropdown */}
-      <div className="mb-6 flex justify-end gap-2 items-center">
+        
+        <div className="mb-6 flex justify-end gap-2 items-center">
         <label htmlFor="language" className="text-md font-semibold text-gray-700">Select Language:</label>
         <select
           id="language"
@@ -195,6 +176,28 @@ const PersonalStyleInventoryQuiz = () => {
           <option value="mr">Marathi</option>
         </select>
       </div>
+        <p className="mb-4 text-sm text-gray-700">
+         {description[language]}
+        </p>
+        {/* <p className="mb-4 text-sm text-gray-700">
+          The following items are arranged in pairs (a & b) and each member of the pair represents a preference you may or may not hold. 
+          Rate your preference for each item by giving it a score between 0 - 5.
+        </p>
+        <ul className="list-disc list-inside mb-6 text-sm text-gray-700">
+          <li>0 = You really feel negative about it or very positive about the other member of the pair.</li>
+          <li>1 = Still feel quite negative about this item.</li>
+          <li>2 = Feel moderately negative about the item.</li>
+          <li>3 = Not really strongly negative or positive.</li>
+          <li>4 = Feel much more positive about this item.</li>
+          <li>5 = You strongly prefer it or do not prefer the other member of the pair.</li>
+        </ul> */}
+        {/* <p className="mb-4 text-sm text-gray-700">
+          The scores for each &quot;a & b&quot; pair MUST ADD UP TO 5 (i.e., 0+5, 1+4, 2+3). Do not use fractions such as 2½.
+        </p> */}
+      </div>
+
+      {/* Language Selection Dropdown */}
+     
 
       <h2 className="text-xl text-center font-semibold mb-6">Question {currentQuestion + 1} of {psiQuizData.length}</h2>
 

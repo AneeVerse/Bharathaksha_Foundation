@@ -14,8 +14,8 @@ export default function Page() {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50" />
         <div className="relative z-10 max-w-7xl px-4 h-full w-full flex flex-col justify-center items-center mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white">Get Involved</h2>
-          <p className="mt-4 text-white font-medium">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white">Get Involved</h2>
+          <p className="mt-4 text-white font-medium max-w-xl mx-auto">
             Join us in making a positive impact. Whether you can volunteer, donate,
             or contribute in any other way, your support is invaluable.
           </p>

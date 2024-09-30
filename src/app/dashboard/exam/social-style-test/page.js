@@ -48,7 +48,7 @@ const SocialStylesQuiz = () => {
   const submitQuiz = async () => {
     setLoading(true); // Set loading to true when submit starts
     const quizResult = {
-      title: "Social Styles Quiz",
+      title: "Social Styles Test",
       type: "SocialStyle",
       // answers, // Assuming answers store selected options
       coordinates // Save the final coordinates (e.g., {x: 2, y: -1})

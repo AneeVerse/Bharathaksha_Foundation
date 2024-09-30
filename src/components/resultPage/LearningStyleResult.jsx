@@ -43,7 +43,17 @@ export default function LearningStyleResult({ data }) {
   return (
     <div className="p-8 min-h-screen flex justify-center items-center">
       <div className=" ">
-        <h2 className="text-4xl text-center font-bold mb-8 text-gray-900">VARK Learning Style Result</h2>
+        <h2 className="text-4xl text-center font-bold mb-8 text-gray-900">Learning Style Test Result</h2>
+
+        <div className="mt-10 p-8 bg-blue-50 border border-blue-200 mb-8 rounded-lg shadow-sm">
+          <h3 className="text-3xl font-semibold text-blue-900 text-center mb-4">Your Preferred Learning Style(s)</h3>
+          <p className="text-center text-lg text-gray-700">
+            Based on your scores, your most preferred learning style(s) are:{" "}
+            <span className="font-bold text-blue-700">
+              {preferredStyles.join(", ")}
+            </span>
+          </p>
+        </div> 
 
         <div className="mb-8">
           {/* <p className="text-2xl font-medium text-gray-700 text-center mb-4">
@@ -63,26 +73,16 @@ export default function LearningStyleResult({ data }) {
           </ul>
         </div>
 
-        <div className="mt-10 p-8 bg-blue-50 border border-blue-200 rounded-lg shadow-md">
-          <h3 className="text-3xl font-semibold text-blue-900 text-center mb-4">Your Preferred Learning Style(s)</h3>
-          <p className="text-center text-lg text-gray-700">
-            Based on your scores, your most preferred learning style(s) are:{" "}
-            <span className="font-bold text-blue-700">
-              {preferredStyles.join(", ")}
-            </span>.
-          </p>
-          <p className="text-center mt-6 text-gray-600">
-            This score indicates your learning preferences but not necessarily your strengths. For a more detailed analysis and personalized guidance, consider booking a counseling session.
-          </p>
-        </div>
 
-        {/* Call to action button for counseling */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-12">
+          <p className="text-lg text-gray-600 mb-6">
+          This score indicates your learning preferences but not necessarily your strengths. For a more detailed analysis and personalized guidance, consider booking a counseling session.
+          </p>
           <button
             onClick={() => router.push('/contact')} // Navigate to contact page
             className="bg-green-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg"
           >
-            Book a Counseling Session
+             Book detailed Counseling Session
           </button>
         </div>
       </div>

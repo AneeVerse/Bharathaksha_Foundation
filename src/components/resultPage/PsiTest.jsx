@@ -93,8 +93,8 @@ export default function PsiTest({ data }) {
         {/* Final Personality Type Section */}
         <h2 className="text-4xl font-bold text-center mb-6 text-gray-900">Psi Personality Test Result</h2>
         <div className="text-center mb-10">
-          <p className="text-xl font-semibold text-gray-700">Your Final Personality Type</p>
-          <p className="text-4xl font-bold text-indigo-600 mb-4">{finalType}</p>
+          <p className="text-2xl mb-3 font-semibold text-gray-700">{"Your Final Personality Type IS:".toUpperCase()} <span className='font-bold text-indigo-600'>{finalType}</span></p>
+  
           <p className="text-gray-700 font-semibold max-w-5xl mx-auto">{personalityTypeDescriptions[finalType]}</p>
         </div>
 
@@ -150,7 +150,7 @@ export default function PsiTest({ data }) {
             onClick={() => router.push('/contact')}
             className="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition-colors shadow-lg"
           >
-            Book a Counseling Session
+             Book detailed Counseling Session
           </button>
         </div>
       </div>

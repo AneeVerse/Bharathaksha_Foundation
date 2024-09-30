@@ -56,7 +56,7 @@ const AdversityResult = ({ data }) => {
   return (
     <div className="flex items-center justify-center py-12 px-3 sm:px-6">
       <div className="w-full bg-white px-6 py-5 sm:px-10 ">
-        <h1 className='text-4xl font-semibold text-center mb-10'>Adversity Result</h1>
+        <h1 className='text-4xl font-semibold text-center mb-10'>Adversity Test Result</h1>
         
         <div className="flex flex-col md:flex-row gap-6 justify-between items-center mb-8">
           <div className="p-6 w-full md:w-1/2 bg-green-100 border-l-4 border-green-500 rounded-lg shadow-sm flex items-center">
@@ -101,7 +101,7 @@ const AdversityResult = ({ data }) => {
             onClick={() => router.push('/contact')} // Navigate to contact page
             className="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition-colors shadow-lg"
           >
-            Contact Us for Counseling
+             Book detailed Counseling Session
           </button>
         </div>
       </div>

@@ -67,7 +67,7 @@ const VARKQuiz = () => {
     const totalScore = varkCounts.V + varkCounts.A + varkCounts.R + varkCounts.K;
 
     const quizResult = {
-      title: "VARK Learning Style Quiz",
+      title: "Learning Style Test",
       type: "LearningStyle",
       totalScore,
       varkCounts,

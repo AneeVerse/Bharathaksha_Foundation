@@ -97,7 +97,7 @@ export default function RIASECResult({ data }) {
             onClick={() => router.push('/contact')} // Navigate to contact page
             className="bg-green-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg"
           >
-            Book a Counseling Session
+              Book detailed Counseling Session
           </button>
         </div>
       </div>

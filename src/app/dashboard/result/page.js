@@ -52,7 +52,7 @@ const Page = () => {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50" />
         <div className="relative z-10 max-w-7xl px-4 h-full w-full flex flex-col justify-center items-center mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white">Test Result</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white">Test Result</h2>
           {/* <p className="mt-4 text-white font-medium">
             Some Highlight Description
           </p> */}
@@ -68,10 +68,10 @@ const Page = () => {
           <div key={index} className="bg-white shadow rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">{quiz.title}</h2>
             
-            <div className="flex justify-between items-center mb-2">
+            {/* <div className="flex justify-between items-center mb-2">
               <span className="font-medium">Score:</span>
               <span className="text-lg font-bold text-green-600">{quiz.totalScore}</span>
-            </div>
+            </div> */}
 
             <div className="flex justify-between items-center mb-2">
               <span className="font-medium">Date:</span>
