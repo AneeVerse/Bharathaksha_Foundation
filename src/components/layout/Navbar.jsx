@@ -102,7 +102,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white h-[90px] border-b fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between h-[90px] px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-[90px] px-2 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href={"/"} className="flex items-center text-lg sm:text-2xl">
             <img
@@ -249,18 +249,11 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`max-w-[300px] h-[calc(100vh-90px)] relative border-r bg-white ${
+        className={`max-w-[300px] h-[calc(100vh-90px)] relative border-r overflow-y-auto bg-white ${
           isOpen ? "translate-x-0" : "translate-x-[-100%]"
         } duration-300`}
         style={{ height: "calc(100vh - 90px)" }}
       >
-        {/* {isLoggedIn && (
-          <div className="px-2 sm:px-3">
-            <span className="block px-3 py-2 text-base font-medium text-black">
-              Hey, {user.name}
-            </span>
-          </div>
-        )} */}
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {menuList.map((val, ind) => (
             <div key={ind} className="">
@@ -300,12 +293,12 @@ export default function Navbar() {
             </div>
           ))}
         <div className="flex justify-between mt-2">
-            <Link href={"/know-yourself"} className="bg-[#0c0c0c] text-white px-6 py-2 rounded-full hover:bg-[#000000]">
+            <Link href={"/know-yourself"} className="bg-[#303030] text-white w-full text-center px-6 py-2 rounded-md hover:bg-[#000000]">
               Know Yourself
             </Link>
           </div>
           {!isLoggedIn ? (
-            <div className="absolute bottom-[60px] w-full">
+            <div className="mt-2">
              
               <Link
                 href="/auth/login"
@@ -318,26 +311,26 @@ export default function Navbar() {
               </Link>
             </div>
           ) : (
-            <div className="absolute bg-[#eeeeee] flex flex-col gap-1  bottom-[60px] w-full  -ml-2 ">
+            <div className=" flex flex-col w-full gap-1 mt-2 ">
               
               <Link
                href={"/dashboard/result"}
                onClick={() => setIsOpen(!isOpen)}
-                className="block  hover:bg-gray-700  px-3 py-2 rounded-md text-base font-medium border-b text-center"
+                className="block    px-3 py-2 rounded-md text-base font-medium "
               >
                 Result
               </Link>
               <Link
                href={"/dashboard/exam"}
                onClick={() => setIsOpen(!isOpen)}
-                className="block   hover:bg-gray-700 px-10 py-2 rounded-md text-base font-medium border-b text-center"
+                className="block  px-3 py-2 rounded-md text-base font-medium"
               >
                 Exam
               </Link>
               <Link
                href={"/dashboard/profile"}
                onClick={() => setIsOpen(!isOpen)}
-                className="block   hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium border-b text-center"
+                className="block    px-3 py-2 rounded-md text-base font-medium"
               >
                 Profile
               </Link>
@@ -346,7 +339,7 @@ export default function Navbar() {
                   handleLogout();
                   setIsOpen(!isOpen);
                 }}
-                className="block w-full text-red-600 hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium border-b text-center"
+                className="block w-full text-red-600  px-3 py-2 rounded-md text-base font-medium  text-left"
               >
                 Logout
               </button>
