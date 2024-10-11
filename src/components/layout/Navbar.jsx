@@ -101,8 +101,8 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white h-[90px] border-b fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between h-[90px] px-3 sm:px-6 lg:px-8">
+      <div className="max-w-[1340px] mx-auto">
+        <div className="flex items-center justify-between h-[90px] px-3 sm:px-2 lg:px-2">
           {/* Logo */}
           <Link href={"/"} className="flex items-center text-lg sm:text-2xl">
             <img
@@ -169,10 +169,18 @@ export default function Navbar() {
               )}
               <div className="hidden xl:flex items-center">
                 <Link
+                  href={"/home/donate"}
+                  className="bg-[#8ac240] text-white px-5 py-2 rounded-md hover:bg-[#618a2c]"
+                >
+                  DONATE
+                </Link>
+              </div>
+              <div className="hidden xl:flex items-center">
+                <Link
                   href={"/know-yourself"}
                   className="bg-[#141414] text-white px-4 py-2 rounded-lg hover:bg-[#000000]"
                 >
-                  Know Yourself
+                 {" Know Yourself".toUpperCase()}
                 </Link>
               </div>
 
@@ -293,8 +301,13 @@ export default function Navbar() {
             </div>
           ))}
         <div className="flex justify-between mt-2">
+            <Link href={"/home/donate"} className="bg-[#618d28] text-white w-full text-center px-6 py-2 rounded-md hover:bg-[#3e581b]">
+              {"Donate".toUpperCase()}
+            </Link>
+          </div>
+        <div className="flex justify-between mt-2">
             <Link href={"/know-yourself"} className="bg-[#303030] text-white w-full text-center px-6 py-2 rounded-md hover:bg-[#000000]">
-              Know Yourself
+              {"Know Yourself".toUpperCase()}
             </Link>
           </div>
           {!isLoggedIn ? (
