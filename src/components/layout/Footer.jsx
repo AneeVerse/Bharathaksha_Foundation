@@ -118,7 +118,7 @@ export default function Footer() {
             Reserved.
           </p>
 
-          <Link href={"https://aneeverse.com/en/"} className="hover:text-[#8ac240] flex justify-center text-center items-center gap-2">Managed & Designed By Aneeverse
+          <Link href={"https://www.aneeverse.com/"} className="hover:text-[#8ac240] flex justify-center text-center items-center gap-2">Managed & Designed By Aneeverse
           <Image src={"/logo/aneeverse-logo.png"} width={16} height={16} alt="aneeverse logo"/></Link>
         </div>
       </div>
