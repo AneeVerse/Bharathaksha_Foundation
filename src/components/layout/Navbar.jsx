@@ -198,7 +198,7 @@ export default function Navbar() {
                           href={"/admin"}
                           className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
                         >
-                          Admin
+                          Dashboard
                         </Link>
                         <Link 
                           href={"/admin/settings"}
@@ -343,7 +343,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(!isOpen)}
                     className="block px-3 py-2 rounded-md text-base font-medium"
                   >
-                    Admin
+                    Dashboard
                   </Link>
                   <Link
                     href={"/admin/settings"}
