@@ -94,7 +94,7 @@ export default function RIASECResult({ data }) {
             Ready to explore these career paths in detail or need guidance on your next steps? Schedule a one-on-one counseling session for personalized career advice.
           </p>
           <button
-            onClick={() => router.push('/contact')} // Navigate to contact page
+            onClick={() => router.push('/home/contact')} // Navigate to contact page
             className="bg-green-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg"
           >
               Book detailed Counseling Session

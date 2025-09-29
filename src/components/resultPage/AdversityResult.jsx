@@ -98,7 +98,7 @@ const AdversityResult = ({ data }) => {
             <p className="text-gray-700">For more detailed or one-on-one counseling, kindly contact us.</p>
           </div>
           <button
-            onClick={() => router.push('/contact')} // Navigate to contact page
+            onClick={() => router.push('/home/contact')} // Navigate to contact page
             className="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition-colors shadow-lg"
           >
              Book detailed Counseling Session

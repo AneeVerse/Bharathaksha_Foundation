@@ -79,7 +79,7 @@ export default function LearningStyleResult({ data }) {
           This score indicates your learning preferences but not necessarily your strengths. For a more detailed analysis and personalized guidance, consider booking a counseling session.
           </p>
           <button
-            onClick={() => router.push('/contact')} // Navigate to contact page
+            onClick={() => router.push('/home/contact')} // Navigate to contact page
             className="bg-green-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-green-700 transition-colors shadow-lg"
           >
              Book detailed Counseling Session
