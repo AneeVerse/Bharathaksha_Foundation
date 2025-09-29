@@ -184,7 +184,7 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {isLoggedIn && (
+{isLoggedIn && (
                 <div className="relative group">
                   <button className="flex items-center text-black hover:text-[#8ac240]">
                     <GoPerson size={25} />
@@ -192,30 +192,41 @@ export default function Navbar() {
 
                   {/* Profile dropdown */}
                   <div className="absolute right-0 -mt-3 border py-2  w-48 bg-white shadow-xl rounded-md hidden group-hover:block">
-                    
+                    {user?.role === 'superadmin' && (
+                      <>
+                        <Link 
+                          href={"/admin"}
+                          className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
+                        >
+                          Admin
+                        </Link>
+                        <Link 
+                          href={"/admin/settings"}
+                          className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
+                        >
+                          Settings
+                        </Link>
+                        <hr className="my-1" />
+                      </>
+                    )}
                     <Link 
                       href={"/dashboard/result"}
                       className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
                     >
                       Result
                     </Link>
-                    
                     <Link 
                       href={"/dashboard/exam"}
                       className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
                     >
                       Exam
                     </Link>
-                    
-                    
                     <Link 
                       href={"/dashboard/profile"}
                       className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
                     >
                       Profile
                     </Link>
-                    
-                    
                     <button
                       onClick={handleLogout}
                       className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#8ac240]"
@@ -325,7 +336,25 @@ export default function Navbar() {
             </div>
           ) : (
             <div className=" flex flex-col w-full gap-1 mt-2 ">
-              
+              {user?.role === 'superadmin' && (
+                <>
+                  <Link
+                    href={"/admin"}
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Admin
+                  </Link>
+                  <Link
+                    href={"/admin/settings"}
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Settings
+                  </Link>
+                  <hr />
+                </>
+              )}
               <Link
                href={"/dashboard/result"}
                onClick={() => setIsOpen(!isOpen)}
