@@ -1,5 +1,15 @@
 import React from 'react'
 
+export const metadata = {
+  title: "Healthcare Initiatives",
+  description: "Ensuring accessible healthcare for all. Learn about our CARE Medical Project, generic medical stores, medicine drop boxes, and health camps.",
+  openGraph: {
+    title: "Healthcare Initiatives | Bharathaksha Foundation",
+    description: "Quality healthcare is a fundamental right. Discover our programs to make it accessible.",
+    url: "https://www.bharathaksha.org/home/ongoing-projects/health-care",
+  },
+};
+
 const page = () => {
   return (
     <div className="bg-white mt-[90px] min-h-screen  py-8 md:py-16">
@@ -15,16 +25,16 @@ const page = () => {
 
       {/* Thumbnail Image Section */}
       <div className="max-w-5xl mx-auto mt-12 px-2">
-        <img 
-          src="/images/ongoing/img2.jpg" 
-          alt="Healthcare Initiatives" 
+        <img
+          src="/images/ongoing/img2.jpg"
+          alt="Healthcare Initiatives"
           className="w-full h-80 md:h-[500px] object-cover rounded-xl shadow-2xl"
         />
       </div>
 
       {/* Subheadings and Content Section */}
       <div className="max-w-5xl mx-auto mt-14 px-6 sm:px-8 space-y-16">
-        
+
         {/* Subheading 1: Generic Medical Stores */}
         <div>
           <h2 className="text-3xl font-semibold text-[#0e2f50] mb-5">

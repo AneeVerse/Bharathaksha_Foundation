@@ -1,6 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Our Projects",
+  description: "Explore the ongoing projects of Bharathaksha Foundation, including Education and Care, Healthcare Services, Community Funds, and the LocalSupport Platform.",
+  openGraph: {
+    title: "Ongoing Projects | Bharathaksha Foundation",
+    description: "Discover how we are making an impact through our diverse range of social initiatives.",
+    url: "https://www.bharathaksha.org/home/ongoing-projects",
+  },
+};
+
 export default function Page() {
   return (
     <div className="bg-gray-50 mt-[90px] min-h-screen">
@@ -34,9 +44,9 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Highlight 1 */}
-            <Link            
-            href="/home/ongoing-projects/education-and-care"
-             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link
+              href="/home/ongoing-projects/education-and-care"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img1.jpg"
                 alt="Education and Career"
@@ -55,8 +65,8 @@ export default function Page() {
 
             {/* Highlight 2 */}
             <Link
-            href="/home/ongoing-projects/health-care"
-             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+              href="/home/ongoing-projects/health-care"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img2.jpg"
                 alt="Healthcare Services"
@@ -67,7 +77,7 @@ export default function Page() {
                 Providing affordable healthcare through community health initiatives and accessible medical services.
               </p>
               <span
-                
+
                 className="inline-block px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors duration-300"
               >
                 Learn More
@@ -75,9 +85,9 @@ export default function Page() {
             </Link>
 
             {/* Highlight 3 */}
-            <Link            
-            href="/home/ongoing-projects/communities-funds"
-             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link
+              href="/home/ongoing-projects/communities-funds"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img3.jpg"
                 alt="Community Funds"
@@ -95,9 +105,9 @@ export default function Page() {
             </Link>
 
             {/* Highlight 4 */}
-            <Link            
-            href="/home/ongoing-projects/localsupport"
-             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <Link
+              href="/home/ongoing-projects/localsupport"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
               <img
                 src="/images/ongoing/img4.jpg"
                 alt="LocalSupport Platform"

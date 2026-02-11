@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const bgImages = [
   {
-    name: "First Image",
+    name: "Bharathaksha Foundation Education Initiatives",
     url: "/images/ongoing/img3.jpg",
   },
   {
-    name: "Second Image",
+    name: "Bharathaksha Foundation Healthcare Support",
     url: "/images/ongoing/img4.jpg",
   },
   {
-    name: "Third Image",
+    name: "Bharathaksha Foundation Community Engagement",
     url: "/images/ongoing/img2.jpg",
   },
 ];
@@ -46,10 +46,10 @@ const HeroSection = () => {
 
   return (
     <div className="relative mt-[90px] h-[calc(100vh-90px)] sm:h-[400px]  md:h-[500px] lg:h-[calc(100vh-90px)] overflow-hidden">
-  {/* for mbbile  */}
-      <img src="images/ongoing/img3.jpg" alt="banner" 
-      className="h-full w-full absolute top-0 object-cover" />
-          {/* Image container with slide animation */}
+      {/* for mbbile  */}
+      <img src="images/ongoing/img3.jpg" alt="Bharathaksha Foundation Home Banner"
+        className="h-full w-full absolute top-0 object-cover" />
+      {/* Image container with slide animation */}
       <div
         className="absolute top-[0px] hidden sm:flex sm:h-[400px] md:h-[500px] lg:h-full left-0 w-full  transition-transform duration-700"
         style={{
@@ -75,22 +75,22 @@ const HeroSection = () => {
 
       <div className="relative z-40 flex items-center gap-8 justify-center h-full text-center text-white px-4">
         <div className="flex flex-col gap-5">
-         <h1 className="text-[52px] md:text-6xl font-bold leading-tight">          
-         <span className="text-[#8ac240]">Bharathaksha</span> <span className="text-[#ffffff] tracking-wider"> Foundation</span>
-          </h1>  
+          <h1 className="text-[52px] md:text-6xl font-bold leading-tight">
+            <span className="text-[#8ac240]">Bharathaksha</span> <span className="text-[#ffffff] tracking-wider"> Foundation</span>
+          </h1>
           <p className="text-xl hidden sm:block text-gray-200 font-semibold md:text-3xl mt-3">Soul of Bharat That is India</p>
           <p className="text-2xl block sm:hidden text-gray-200 font-semibold md:text-3xl mt-3">Soul of Bharat That is India</p>
-         
+
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-           
+
             <Link
               href={"/home/about"}
               className="bg-transparent font-bold border-2 border-white text-center px-5 sm:px-6 py-3 rounded-full hover:bg-white hover:text-black"
             >
               {"Who we are".toUpperCase()}
-             
-            </Link> 
+
+            </Link>
             <Link
               href={"/know-yourself"}
               className="bg-yellow-500 text-black font-bold px-5 sm:px-6 py-3 rounded-full hover:bg-yellow-600"

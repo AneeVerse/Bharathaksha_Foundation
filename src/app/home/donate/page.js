@@ -1,6 +1,16 @@
 import Image from 'next/image';
 import { FaUniversity, FaMoneyCheckAlt, FaBarcode } from 'react-icons/fa';
 
+export const metadata = {
+  title: "Donate",
+  description: "Support Bharathaksha Foundation's mission. Your donations help us provide healthcare and education to those in need. Find bank details and UPI QR code for contributions.",
+  openGraph: {
+    title: "Support Our Cause | Donate to Bharathaksha Foundation",
+    description: "Every contribution makes a difference. Help us empower communities through your generous donations.",
+    url: "https://www.bharathaksha.org/home/donate",
+  },
+};
+
 const Page = () => {
   return (
     <div className="flex flex-col mt-[120px] mb-[30px] max-w-[1200px] mx-auto lg:flex-row justify-between items-start bg-white p-8 rounded-xl shadow-2xl border border-gray-200">

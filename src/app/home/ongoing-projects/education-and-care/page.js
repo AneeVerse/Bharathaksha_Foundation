@@ -1,5 +1,15 @@
 import React from 'react'
 
+export const metadata = {
+  title: "Education and Career Guidance",
+  description: "Transforming lives through informed career choices. Explore our career counseling, workshops, mentorship programs, and scholarships.",
+  openGraph: {
+    title: "Education and Career Guidance | Bharathaksha Foundation",
+    description: "Empowering students and professionals to make informed career decisions.",
+    url: "https://www.bharathaksha.org/home/ongoing-projects/education-and-care",
+  },
+};
+
 const page = () => {
   return (
     <div className="bg-white mt-[90px] min-h-screen  py-8 md:py-16">
@@ -15,16 +25,16 @@ const page = () => {
 
       {/* Thumbnail Image Section */}
       <div className="max-w-5xl mx-auto mt-12 px-2">
-        <img 
-          src="/images/ongoing/img2.jpg" 
-          alt="Education and Career Guidance" 
+        <img
+          src="/images/ongoing/img2.jpg"
+          alt="Education and Career Guidance"
           className="w-full h-80 md:h-[500px] object-cover rounded-xl shadow-2xl"
         />
       </div>
 
       {/* Subheadings and Content Section */}
       <div className="max-w-5xl mx-auto mt-14 px-6 sm:px-8 space-y-16">
-        
+
         {/* Subheading 1: Career Counseling */}
         <div>
           <h2 className="text-3xl font-semibold text-[#0e2f50] mb-5">

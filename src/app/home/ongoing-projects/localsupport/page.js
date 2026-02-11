@@ -1,5 +1,15 @@
 import React from 'react';
 
+export const metadata = {
+  title: "LocalSupport Platform",
+  description: "Connecting community resources with local needs. Explore our needs board, resource directory, volunteer hub, and events calendar at LocalSupport.org.",
+  openGraph: {
+    title: "LocalSupport.org | Empowering Communities",
+    description: "A digital platform by Bharathaksha Foundation to foster collaboration and volunteerism.",
+    url: "https://www.bharathaksha.org/home/ongoing-projects/localsupport",
+  },
+};
+
 const LocalSupportPage = () => {
   return (
     <div className="bg-white mt-[90px] min-h-screen py-8 md:py-16">
@@ -13,18 +23,18 @@ const LocalSupportPage = () => {
         </p>
       </div>
 
- {/* Thumbnail Image Section */}
- <div className="max-w-5xl mx-auto mt-12 px-2">
-        <img 
-          src="/images/ongoing/img2.jpg" 
-          alt="Healthcare Initiatives" 
+      {/* Thumbnail Image Section */}
+      <div className="max-w-5xl mx-auto mt-12 px-2">
+        <img
+          src="/images/ongoing/img2.jpg"
+          alt="Healthcare Initiatives"
           className="w-full h-80 md:h-[500px] object-cover rounded-xl shadow-2xl"
         />
       </div>
 
       {/* Subheadings and Content Section */}
       <div className="max-w-5xl mx-auto mt-14 px-6 sm:px-8 space-y-16">
-        
+
         {/* Subheading 1: Needs Board */}
         <div>
           <h2 className="text-3xl font-semibold text-[#0e2f50] mb-5">

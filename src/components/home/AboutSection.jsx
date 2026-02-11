@@ -10,14 +10,14 @@ const AboutSection = () => {
       {/* Decorative Background Elements */}
       {/* <div className="absolute top-0 left-10 w-40 h-40 bg-[#8ac240] opacity-20 rounded-full blur-xl animate-pulse"></div> */}
       {/* <div className="absolute bottom-0 right-20 w-60 h-60 bg-[#0e2f50] opacity-10 rounded-full blur-2xl animate-pulse delay-500"></div> */}
-      
+
       {/* Main Content */}
       <div className="flex container mx-auto flex-col-reverse lg:flex-row items-center justify-between md:space-x-8 space-y-8 md:space-y-0 px-4 md:px-16 relative z-10">
         {/* Main Image */}
         <div className="relative flex justify-center flex-1 md:w-full h-[500px] rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
           <img
             src="/images/home/about_img.png"
-            alt="about us image"
+            alt="Bharathaksha Foundation - Empowering India through Education and Healthcare"
             className="rounded-lg object-cover h-full"
           />
         </div>
@@ -35,17 +35,17 @@ const AboutSection = () => {
             strives to empower individuals and create a more inclusive society.
           </p>
 
-        {/* Work as an Intern Section */}
-         <div className="flex justify-center sm:justify-normal gap-4 sm:gap-8 mt-3">
+          {/* Work as an Intern Section */}
+          <div className="flex justify-center sm:justify-normal gap-4 sm:gap-8 mt-3">
             <GrGroup className="text-[#8ac240] h-[40px] w-[40px] sm:h-[70px] sm:w-[70px] self-center animate-bounce" />
             <div className="flex flex-row items-center gap-4 ">
-         <div>
-              <Link
-                href="/home/about"
-                className="bg-[#8ac240] block text-white font-semibold px-12 py-3 rounded-full hover:bg-[#5d8626] duration-300 min-w-max"
-              >
-                Learn More
-              </Link>
+              <div>
+                <Link
+                  href="/home/about"
+                  className="bg-[#8ac240] block text-white font-semibold px-12 py-3 rounded-full hover:bg-[#5d8626] duration-300 min-w-max"
+                >
+                  Learn More
+                </Link>
               </div>
               <Link
                 href="https://wa.me/919222285780?text=Hello,%20I%20am%20interested%20in%20your%20services."
@@ -55,7 +55,7 @@ const AboutSection = () => {
                 <IoLogoWhatsapp className="w-10 h-10 sm:w-5 sm:h-5 self-center" />
                 <p className=" hidden sm:block">9222285780</p>
               </Link>
-              
+
             </div>
           </div>
         </div>

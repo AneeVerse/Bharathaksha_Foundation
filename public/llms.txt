@@ -1,0 +1,25 @@
+# Bharathaksha Foundation
+
+> Empowering individuals and communities through education and healthcare.
+
+## About
+Bharathaksha Foundation is dedicated to making a meaningful difference in society by focusing on two twin pillars: Education and Healthcare. We provide comprehensive career guidance and accessible healthcare services to those in need, aiming for inclusive growth and social empowerment.
+
+## Key Pages
+- Home: https://www.bharathaksha.org/
+- About: https://www.bharathaksha.org/home/about
+- Ongoing Projects: https://www.bharathaksha.org/home/ongoing-projects
+- Get Involved: https://www.bharathaksha.org/home/get-involved
+- Gallery: https://www.bharathaksha.org/home/gallery
+- Contact: https://www.bharathaksha.org/home/contact
+- Donate: https://www.bharathaksha.org/home/donate
+
+## Projects
+- Education and Care: Focusing on career guidance and educational support.
+- Healthcare: Providing accessible medical services and support.
+- Community Funds: Supporting local communities through financial assistance.
+- Local Support: Empowering local initiatives and grassroots development.
+
+## Contact
+- Website: https://www.bharathaksha.org
+- Location: India
